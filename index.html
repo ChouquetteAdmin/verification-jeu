@@ -111,7 +111,15 @@
     }
     .section-body em     { color: #fff; font-style: italic; }
     .section-body strong { color: var(--gold); }
-
+    .intro-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1.6rem, 6vw, 2.4rem);
+      letter-spacing: 0.08em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .intro-title .red { color: var(--red); }
     /* ═══════════════════════════════
        INTERPOL PORTAL — FOND BLANC
     ═══════════════════════════════ */
@@ -469,9 +477,12 @@
   </nav>
 
   <main>
-    <div><img src="livrelucas.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;</div>
+    <img src="livrelucas.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;</div>
 
-      <div class="section-rule">Vérification du Suspect</div>
+    <div class="intro-header">
+      <h2 class="intro-title">Vérification du <span class="red">suspect</span></h2>
+    </div>
+
     <p class="section-body">
       Utilisez le portail sécurisé ci-dessous pour transmettre votre accusation à la
       <em>Police</em>.
