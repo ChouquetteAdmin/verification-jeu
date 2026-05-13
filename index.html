@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>L'Assassin n'est pas Lucas — Solution</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
-
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #141414;
+      --bg:        #1c1c1c;
       --red:       #c0392b;
       --red2:      #e74c3c;
       --gold:      #c9a84c;
@@ -28,13 +21,10 @@
       --mono:      'Share Tech Mono', monospace;
     }
 
-    html {
-      scroll-behavior: smooth;
-      background: var(--bg);
-    }
+    html { scroll-behavior: smooth; background: #1c1c1c; }
 
     body {
-      background: var(--bg);
+      background: #1c1c1c;
       color: #ffffff;
       font-family: 'Crimson Pro', Georgia, serif;
       font-size: 1.1rem;
@@ -42,10 +32,9 @@
     }
 
     /* HEADER */
-
     header {
-      background: var(--bg);
-      border-bottom: 1px solid #222;
+      background: #1c1c1c;
+      border-bottom: 1px solid #2a2a2a;
       padding: 36px 20px 28px;
       text-align: center;
     }
@@ -57,17 +46,10 @@
       letter-spacing: 0.02em;
       color: #ffffff;
     }
+    .site-title .accent-red  { color: var(--red); }   /* "N'EST PAS" */
+    .site-title .accent-name { color: #ffffff; }        /* "LUCAS" */
 
-    .site-title .accent-red {
-      color: var(--red);
-    }
-
-    .site-title .accent-name {
-      color: #ffffff;
-    }
-
-    /* NAV */
-
+    /* NAV — même couleur que le fond */
     nav {
       display: flex;
       flex-wrap: wrap;
@@ -75,8 +57,7 @@
       gap: 10px;
       padding: 22px 16px;
       background: #000000;
-      border-top: 1px solid #111;
-      border-bottom: 1px solid #111;
+      border-bottom: 1px solid #2a2a2a;
     }
 
     .tag {
@@ -85,33 +66,24 @@
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: #ffffff;
-      border: 1.5px dashed rgba(255,255,255,0.7);
+      border: 1.5px dashed #ffffff;
       border-radius: 2px;
       padding: 7px 16px;
       text-decoration: none;
-      background: transparent;
-      transition:
-        color 0.2s,
-        border-color 0.2s,
-        background 0.2s,
-        transform 0.15s;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
-
     .tag:hover {
-      color: #ffffff;
-      border-color: #ffffff;
-      background: rgba(255,255,255,0.06);
-      transform: translateY(-1px);
+      color: #fff;
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.07);
     }
-
     .tag.active {
-      color: #ffffff;
-      border-color: #ffffff;
-      background: rgba(255,255,255,0.1);
+      color: var(--red2);
+      border-color: var(--red);
+      background: rgba(192,57,43,0.1);
     }
 
     /* MAIN */
-
     main {
       max-width: 660px;
       margin: 0 auto;
@@ -125,69 +97,50 @@
       color: #ffffff;
       margin-bottom: 10px;
     }
-
     .section-rule {
       height: 2px;
       background: linear-gradient(to right, var(--red), transparent);
       margin-bottom: 24px;
     }
-
     .section-body {
       font-size: 1.05rem;
       line-height: 1.75;
       color: #cccccc;
       margin-bottom: 18px;
     }
+    .section-body em     { color: #fff; font-style: italic; }
+    .section-body strong { color: var(--gold); }
 
-    .section-body em {
-      color: #fff;
-      font-style: italic;
-    }
-
-    .section-body strong {
-      color: var(--gold);
-    }
-
-    /* PORTAL */
-
+    /* ═══════════════════════════════
+       INTERPOL PORTAL — FOND BLANC
+    ═══════════════════════════════ */
     .portal-wrap {
       margin: 36px 0 48px;
-      border: 1px solid #222;
+      border: 1px solid var(--ip-border);
       border-radius: 3px;
       overflow: hidden;
       box-shadow:
-        0 0 0 1px rgba(255,255,255,0.03),
-        0 0 40px rgba(0,0,0,0.5),
-        0 16px 64px rgba(0,0,0,0.75);
+        0 0 0 1px rgba(58,127,212,0.12),
+        0 0 40px rgba(13,45,107,0.35),
+        0 16px 64px rgba(0,0,0,0.6);
     }
 
+    /* Window titlebar */
     .portal-titlebar {
-      background: #000;
-      border-bottom: 1px dashed rgba(255,255,255,0.15);
+      background: linear-gradient(180deg, #1c2e50 0%, #142240 100%);
+      border-bottom: 2px solid var(--ip-blue2);
     }
-
     .titlebar-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 8px 12px;
     }
-
-    .titlebar-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-    }
-
-    .dot-red { background: #ff5f57; }
+    .titlebar-dots { display: flex; gap: 6px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-red   { background: #ff5f57; }
     .dot-amber { background: #febc2e; }
     .dot-green { background: #28c840; }
-
     .titlebar-label {
       font-family: var(--mono);
       font-size: 0.65rem;
@@ -195,7 +148,6 @@
       color: rgba(255,255,255,0.5);
       text-transform: uppercase;
     }
-
     .titlebar-status {
       display: flex;
       align-items: center;
@@ -204,62 +156,35 @@
       font-size: 0.6rem;
       color: var(--green);
     }
-
     .titlebar-status::before {
       content: '';
-      width: 6px;
-      height: 6px;
+      width: 6px; height: 6px;
       border-radius: 50%;
       background: var(--green);
       box-shadow: 0 0 6px var(--green);
       animation: pulse 2s ease-in-out infinite;
     }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-    @keyframes pulse {
-      0%,100% { opacity:1; }
-      50% { opacity:0.4; }
-    }
-
-    /* BANNER */
-
+    /* Blue Interpol banner */
     .portal-banner {
-      background: #000000;
+      background: linear-gradient(135deg, #0d2d6b 0%, #163d8a 60%, #0d2d6b 100%);
       padding: 20px 24px 16px;
       display: flex;
       align-items: center;
       gap: 16px;
-      border-bottom: 1px dashed rgba(255,255,255,0.2);
+      border-bottom: 3px solid rgba(58,127,212,0.4);
       position: relative;
       overflow: hidden;
     }
-
     .portal-banner::before {
       content: '';
       position: absolute;
       inset: 0;
-      background:
-        repeating-linear-gradient(
-          90deg,
-          transparent,
-          transparent 40px,
-          rgba(255,255,255,0.02) 40px,
-          rgba(255,255,255,0.02) 41px
-        );
+      background: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
     }
-
-    .interpol-badge {
-      width: 52px;
-      height: 52px;
-      flex-shrink: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .banner-text {
-      position: relative;
-      z-index: 1;
-    }
-
+    .interpol-badge { width: 52px; height: 52px; flex-shrink: 0; position: relative; z-index: 1; }
+    .banner-text { position: relative; z-index: 1; }
     .banner-title {
       font-family: var(--mono);
       font-size: 0.78rem;
@@ -268,7 +193,6 @@
       color: #fff;
       font-weight: 700;
     }
-
     .banner-subtitle {
       font-family: var(--mono);
       font-size: 0.6rem;
@@ -277,14 +201,7 @@
       margin-top: 3px;
       text-transform: uppercase;
     }
-
-    .banner-ref {
-      margin-left: auto;
-      text-align: right;
-      position: relative;
-      z-index: 1;
-    }
-
+    .banner-ref { margin-left: auto; text-align: right; position: relative; z-index: 1; }
     .banner-ref span {
       display: block;
       font-family: var(--mono);
@@ -292,29 +209,27 @@
       color: rgba(255,255,255,0.4);
       letter-spacing: 0.1em;
     }
-
     .banner-ref strong {
       font-family: var(--mono);
       font-size: 0.75rem;
-      color: #ffffff;
+      color: var(--ip-light);
       letter-spacing: 0.08em;
     }
 
-    /* BODY */
-
+    /* Portal body — FOND BLANC */
     .portal-body {
       background: #ffffff;
       padding: 28px 28px 24px;
       position: relative;
     }
 
+    /* Tabs */
     .portal-tabs {
       display: flex;
       gap: 0;
       margin-bottom: 20px;
       border-bottom: 1px solid #ddd;
     }
-
     .ptab {
       font-family: var(--mono);
       font-size: 0.6rem;
@@ -325,13 +240,13 @@
       border-bottom: 2px solid transparent;
       margin-bottom: -1px;
     }
-
     .ptab.active {
-      color: #111;
-      border-bottom-color: #111;
-      background: rgba(0,0,0,0.04);
+      color: var(--ip-blue2);
+      border-bottom-color: var(--ip-blue2);
+      background: rgba(22,61,138,0.04);
     }
 
+    /* Classification strip */
     .classif {
       display: flex;
       align-items: center;
@@ -342,7 +257,6 @@
       border: 1px solid rgba(192,57,43,0.2);
       border-radius: 1px;
     }
-
     .classif-badge {
       font-family: var(--mono);
       font-size: 0.58rem;
@@ -353,7 +267,6 @@
       text-transform: uppercase;
       flex-shrink: 0;
     }
-
     .classif-text {
       font-family: var(--mono);
       font-size: 0.6rem;
@@ -361,10 +274,8 @@
       letter-spacing: 0.06em;
     }
 
-    .db-field {
-      margin-bottom: 16px;
-    }
-
+    /* Form field */
+    .db-field { margin-bottom: 16px; }
     .db-field label {
       display: flex;
       align-items: center;
@@ -373,15 +284,10 @@
       font-size: 0.62rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #111;
+      color: var(--ip-blue2);
       margin-bottom: 6px;
     }
-
-    .db-field label::before {
-      content: '▸';
-      font-size: 0.7rem;
-    }
-
+    .db-field label::before { content: '▸'; font-size: 0.7rem; }
     .db-field input {
       width: 100%;
       background: #f7f9fc;
@@ -393,29 +299,40 @@
       color: #111;
       outline: none;
       letter-spacing: 0.08em;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
+    .db-field input:focus {
+      border-color: var(--ip-light);
+      box-shadow: 0 0 0 3px rgba(58,127,212,0.12);
+      background: #fff;
+    }
+    .db-field input::placeholder { color: #bbb; }
 
+    /* Submit button */
     .submit-btn {
       width: 100%;
       padding: 13px;
-      background: #000;
+      background: linear-gradient(180deg, var(--ip-blue2) 0%, var(--ip-blue) 100%);
       color: #fff;
-      border: 1px dashed rgba(255,255,255,0.35);
+      border: 1px solid var(--ip-light);
       border-radius: 1px;
       font-family: var(--mono);
       font-size: 0.8rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: 0.2s;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: 0 0 16px rgba(58,127,212,0.2);
       margin-top: 4px;
     }
-
     .submit-btn:hover {
-      background: #111;
+      background: linear-gradient(180deg, #1e5ab8 0%, var(--ip-blue2) 100%);
+      box-shadow: 0 0 28px rgba(58,127,212,0.35);
       transform: translateY(-1px);
     }
+    .submit-btn:active { transform: translateY(0); }
 
+    /* Result */
     .result {
       margin-top: 16px;
       max-height: 0;
@@ -423,22 +340,46 @@
       transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.4s;
       border-radius: 1px;
     }
-
-    .result.show {
-      max-height: 200px;
-      padding: 16px;
-    }
-
+    .result.show { max-height: 200px; padding: 16px; }
     .result.correct {
       background: rgba(0,180,80,0.07);
       border: 1px solid rgba(0,180,80,0.3);
     }
-
     .result.wrong {
       background: rgba(192,57,43,0.06);
       border: 1px solid rgba(192,57,43,0.25);
     }
+    .result-status {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .result.correct .result-status { color: #1a9e50; }
+    .result.wrong   .result-status { color: var(--red); }
+    .result-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .result.correct .result-title { color: #111; }
+    .result.wrong   .result-title { color: var(--red); }
+    .result-text {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-align: center;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+    .result.correct .result-text { color: #1a9e50; }
+    .result.wrong   .result-text { color: #999; }
 
+    /* Terminal */
     .terminal {
       margin-top: 18px;
       padding: 12px 14px;
@@ -447,7 +388,6 @@
       border-radius: 1px;
       min-height: 52px;
     }
-
     .term-line {
       font-family: var(--mono);
       font-size: 0.7rem;
@@ -455,70 +395,54 @@
       letter-spacing: 0.06em;
       line-height: 1.7;
     }
-
     .term-line.active { color: var(--green); }
-    .term-line.err { color: var(--red2); }
-
+    .term-line.err    { color: var(--red2); }
     .cursor-block {
       display: inline-block;
-      width: 8px;
-      height: 13px;
+      width: 8px; height: 13px;
       background: var(--green);
       vertical-align: middle;
       margin-left: 2px;
       animation: cblink 0.9s step-end infinite;
     }
+    @keyframes cblink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    @keyframes cblink {
-      0%,100% { opacity:1; }
-      50% { opacity:0; }
-    }
-
+    /* Status bar */
     .portal-statusbar {
-      background: #000;
-      border-top: 1px dashed rgba(255,255,255,0.15);
+      background: #f0f4fa;
+      border-top: 1px solid #dde4f0;
       padding: 7px 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
-    .status-left {
-      font-family: var(--mono);
-      font-size: 0.57rem;
-      color: rgba(255,255,255,0.45);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    .status-right {
-      font-family: var(--mono);
-      font-size: 0.57rem;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.1em;
-    }
+    .status-left { font-family: var(--mono); font-size: 0.57rem; color: #aaa; letter-spacing: 0.1em; text-transform: uppercase; }
+    .status-right { font-family: var(--mono); font-size: 0.57rem; color: var(--ip-blue2); opacity: 0.6; letter-spacing: 0.1em; }
 
     /* CONTACT */
-
     .contact-section {
-      margin-top: 48px;
+      margin-top: 0;
+      background: var(--red);
+      padding: 40px 24px;
+      max-width: 100%;
     }
-
+    .contact-section .section-title { color: #fff; }
+    .contact-section .section-body  { color: rgba(255,255,255,0.85); }
+    .contact-section .section-rule  { background: linear-gradient(to right, rgba(255,255,255,0.5), transparent); }
     .contact-section a {
-      color: var(--red2);
+      color: #fff;
       text-decoration: none;
-      border-bottom: 1px solid rgba(231,76,60,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      transition: opacity 0.2s;
     }
+    .contact-section a:hover { opacity: 0.75; }
 
     /* FOOTER */
-
     footer {
-      background: #000000;
-      border-top: 1px dashed rgba(255,255,255,0.15);
+      background: var(--red);
       padding: 22px 20px;
       text-align: center;
     }
-
     .footer-text {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(1rem, 4vw, 1.4rem);
@@ -526,32 +450,220 @@
       color: #fff;
       line-height: 1.5;
     }
-
-    .footer-dot {
-      color: rgba(255,255,255,0.4);
-      margin: 0 6px;
-    }
-
+    .footer-dot { color: rgba(255,255,255,0.4); margin: 0 6px; }
   </style>
 </head>
-
 <body>
 
-<header>
-  <h1 class="site-title">
-    L'ASSASSIN<br/>
-    <span class="accent-red">N'EST PAS</span> LUCAS
-  </h1>
-</header>
+  <header>
+    <h1 class="site-title">
+      L'ASSASSIN<br/><span class="accent-red">N'EST PAS</span> LUCAS
+    </h1>
+  </header>
 
-<nav>
-  <a class="tag" href="#">Accueil</a>
-  <a class="tag" href="#">Indices</a>
-  <a class="tag" href="#">Conseils</a>
-  <a class="tag" href="#">FAQ</a>
-  <a class="tag" href="#">Corrections</a>
-  <a class="tag active" href="#">Solution</a>
-</nav>
+  <nav>
+    <a class="tag" href="#">Accueil</a>
+    <a class="tag" href="#">Indices</a>
+    <a class="tag" href="#">Conseils</a>
+    <a class="tag" href="#">FAQ</a>
+    <a class="tag" href="#">Corrections</a>
+    <a class="tag active" href="#">Solution</a>
+  </nav>
 
+  <main>
+
+    <h2 class="section-title">Soumettre votre solution</h2>
+    <div class="section-rule"></div>
+    <p class="section-body">
+      Utilisez le portail sécurisé ci-dessous pour soumettre votre réponse à la
+      <em>Brigade Criminelle</em>.
+    </p>
+    <p class="section-body">
+      Entrez le prénom du suspect que vous pensez être le coupable.
+      Vous n'aurez la confirmation que si vous avez <strong>le bon nom</strong>.
+    </p>
+    <p class="section-body" style="font-style:italic; color:#666; font-size:0.95rem;">
+      Attention — ne soumettez votre réponse qu'une fois votre enquête terminée.
+    </p>
+
+    <!-- PORTAL -->
+    <div class="portal-wrap">
+
+      <div class="portal-titlebar">
+        <div class="titlebar-top">
+          <div class="titlebar-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-amber"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <span class="titlebar-label">Portail Sécurisé — Accès Restreint</span>
+          <span class="titlebar-status">CONNEXION ÉTABLIE</span>
+        </div>
+      </div>
+
+      <div class="portal-banner">
+        <svg class="interpol-badge" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,2 34,10 44,10 44,20 50,26 44,32 44,42 34,42 26,50 18,42 8,42 8,32 2,26 8,20 8,10 18,10" fill="#0d2d6b" stroke="#3a7fd4" stroke-width="1.5"/>
+          <polygon points="26,7 33,14 41,14 41,22 46,26 41,30 41,38 33,38 26,45 19,38 11,38 11,30 6,26 11,22 11,14 19,14" fill="#163d8a" stroke="#4a8fd4" stroke-width="0.8"/>
+          <circle cx="26" cy="26" r="10" fill="none" stroke="#4a8fd4" stroke-width="1.2"/>
+          <text x="26" y="30" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#fff">BC</text>
+        </svg>
+        <div class="banner-text">
+          <div class="banner-title">Brigade Criminelle</div>
+          <div class="banner-subtitle">Système d'identification — Base de données nationale</div>
+        </div>
+        <div class="banner-ref">
+          <span>DOSSIER</span>
+          <strong>#LC-2024-0847</strong>
+        </div>
+      </div>
+
+      <div class="portal-body">
+
+        <div class="portal-tabs">
+          <div class="ptab active">Soumission</div>
+          <div class="ptab">Suspects</div>
+          <div class="ptab">Archives</div>
+        </div>
+
+        <div class="classif">
+          <span class="classif-badge">Confidentiel</span>
+          <span class="classif-text">Accès autorisé — Vérification de suspect — Affaire L'Assassin n'est pas Lucas</span>
+        </div>
+
+        <div class="db-field">
+          <label for="prenom">Identité du suspect</label>
+          <input type="text" id="prenom" placeholder="ENTRER LE PRÉNOM DU COUPABLE..." autocomplete="off" spellcheck="false"/>
+        </div>
+
+        <button class="submit-btn" onclick="verifier()">▶ &nbsp; Lancer la vérification</button>
+
+        <div class="result" id="result">
+          <div class="result-status" id="result-status"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-text" id="result-text"></div>
+        </div>
+
+        <div class="terminal" id="terminal">
+          <div class="term-line" id="tl1"></div>
+          <div class="term-line" id="tl2"></div>
+          <div class="term-line active" id="tl3"><span class="cursor-block"></span></div>
+        </div>
+
+      </div>
+
+      <div class="portal-statusbar">
+        <span class="status-left">Session: 256-bit AES &nbsp;|&nbsp; TLS 1.3</span>
+        <span class="status-right">brigade-criminelle.fr</span>
+      </div>
+
+    </div>
+
+    <div class="contact-section" style="margin-left:calc(-24px);margin-right:calc(-24px);padding-left:24px;padding-right:24px;">
+      <h2 class="section-title">Contact</h2>
+      <div class="section-rule"></div>
+      <p class="section-body">
+        Une question ? Contactez-nous à
+        <a href="mailto:contact@lassassinnestpaslucas.fr">contact@lassassinnestpaslucas.fr</a>.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <p class="footer-text">
+      ÉLIMINEZ LES INNOCENTS
+      <span class="footer-dot">•</span>
+      RÉSOLVEZ LE MYSTÈRE
+      <span class="footer-dot">•</span>
+      OSEZ-VOUS ?
+    </p>
+  </footer>
+
+  <script>
+    const COUPABLE = "Sasha";
+
+    const bootLines = [
+      { el: 'tl1', text: '> Connexion au serveur sécurisé... OK', delay: 400 },
+      { el: 'tl2', text: '> Chargement de la base de données... OK', delay: 1200 },
+    ];
+    bootLines.forEach(({ el, text, delay }) => {
+      setTimeout(() => typeInto(document.getElementById(el), text, 28), delay);
+    });
+    setTimeout(() => {
+      const t3 = document.getElementById('tl3');
+      t3.innerHTML = '';
+      typeInto(t3, "> En attente d'une accusation_", 32, true);
+    }, 2400);
+
+    function typeInto(el, text, speed, cursor = false) {
+      let i = 0;
+      function step() {
+        if (i <= text.length) {
+          el.innerHTML = text.slice(0, i) + (cursor ? '<span class="cursor-block"></span>' : '');
+          i++;
+          setTimeout(step, speed + Math.random() * 15);
+        }
+      }
+      step();
+    }
+
+    function normaliser(s) {
+      return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function verifier() {
+      const val = document.getElementById('prenom').value;
+      const box = document.getElementById('result');
+      box.className = 'result';
+      box.classList.remove('show');
+
+      const t1 = document.getElementById('tl1');
+      const t2 = document.getElementById('tl2');
+      const t3 = document.getElementById('tl3');
+
+      if (!val.trim()) {
+        t3.className = 'term-line err';
+        t3.textContent = '> ERREUR : aucun identifiant saisi.';
+        return;
+      }
+
+      t1.className = 'term-line';
+      t2.className = 'term-line';
+      t3.className = 'term-line';
+      t1.textContent = '> Recherche dans la base de données...';
+      t2.textContent = '';
+      t3.innerHTML = '<span class="cursor-block"></span>';
+
+      setTimeout(() => {
+        t2.textContent = `> Suspect : "${val.toUpperCase()}" — Analyse en cours...`;
+      }, 600);
+
+      setTimeout(() => {
+        if (normaliser(val) === normaliser(COUPABLE)) {
+          t3.className = 'term-line active';
+          t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
+          showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
+        } else {
+          t3.className = 'term-line err';
+          t3.textContent = '> AUCUNE CORRESPONDANCE — Suspect non reconnu.';
+          showResult('wrong', '[ ACCUSATION REJETÉE ]', 'Suspect Innocenté', 'Ce prénom ne correspond pas au coupable. Reprenez votre enquête.');
+        }
+      }, 1600);
+    }
+
+    function showResult(type, status, title, text) {
+      const box = document.getElementById('result');
+      box.className = 'result ' + type;
+      document.getElementById('result-status').textContent = status;
+      document.getElementById('result-title').textContent = title;
+      document.getElementById('result-text').textContent = text;
+      requestAnimationFrame(() => box.classList.add('show'));
+    }
+
+    document.getElementById('prenom').addEventListener('keydown', e => {
+      if (e.key === 'Enter') verifier();
+    });
+  </script>
 </body>
 </html>
