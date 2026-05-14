@@ -669,7 +669,20 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       <br>trouvez l'ASSASSIN
     </p>
   </footer>
-
+  
+   <div class="amazon-popup-overlay" id="reviewPopup">
+    <div class="amazon-popup">
+      <button class="amazon-popup-close" onclick="closePopup()">✕</button>
+      <div class="amazon-popup-icon">⭐</div>
+      <div class="amazon-popup-title">Vous avez aimé le livre ?</div>
+      <p class="amazon-popup-text">Votre avis compte énormément.<br>Laissez un commentaire sur Amazon et aidez d'autres lecteurs à découvrir l'enquête.</p>
+      <a href="https://www.amazon.fr/review/create-review?asin=VOTRE_ASIN" target="_blank" class="amazon-popup-link">
+        <img src="amazon.png" style="width:20px;height:20px;" alt="Amazon"/>
+        Laisser un avis<br>sur Amazon
+      </a>
+    </div>
+  </div>
+  
   <script>
     const COUPABLE = "Sasha";
 
@@ -760,11 +773,12 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         const email = document.getElementById('email').value.trim();
         const rgpd  = document.getElementById('rgpd').checked;
         if (email) {
-  fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
-    method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, rgpd: true, source: 'verification-jeu' })
-          });
+  fetch('https://script.google.com/...', {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, rgpd: rgpd, source: 'verification-jeu' })
+  });
         }
       }
     }
@@ -783,17 +797,5 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       if (e.key === 'Enter') verifier();
     });
   </script>
-  <div class="amazon-popup-overlay" id="reviewPopup">
-    <div class="amazon-popup">
-      <button class="amazon-popup-close" onclick="closePopup()">✕</button>
-      <div class="amazon-popup-icon">⭐</div>
-      <div class="amazon-popup-title">Vous avez aimé le livre ?</div>
-      <p class="amazon-popup-text">Votre avis compte énormément.<br>Laissez un commentaire sur Amazon et aidez d'autres lecteurs à découvrir l'enquête.</p>
-      <a href="https://www.amazon.fr/review/create-review?asin=VOTRE_ASIN" target="_blank" class="amazon-popup-link">
-        <img src="amazon.png" style="width:20px;height:20px;" alt="Amazon"/>
-        Laisser un avis<br>sur Amazon
-      </a>
-    </div>
-  </div>
 </body>
 </html>
