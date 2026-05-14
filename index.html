@@ -609,14 +609,10 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           <label for="prenom">Identité du suspect</label>
           <input type="text" id="prenom" placeholder="ENTRER LE PRÉNOM DU COUPABLE..." autocomplete="off" spellcheck="false"/>
         </div>
-
-        <div class="db-field">
-            <label for="page">Page de la solution</label>
-            <input type="number" id="page" placeholder="EX: 142" autocomplete="off" min="1"/>
-          </div>
+        
           <div class="db-field">
-            <label for="email">Adresse e-mail</label>
-            <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false"/>
+            <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
+            <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false"required/>
           </div>
 
         <div class="rgpd-field">
@@ -721,6 +717,11 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         t3.textContent = '> ERREUR : aucun identifiant saisi.';
         return;
       }
+      if (!document.getElementById('email').value.trim()) {
+      t3.className = 'term-line err';
+      t3.textContent = '> ERREUR : adresse e-mail requise.';
+      return;
+      }
 
       t1.className = 'term-line';
       t2.className = 'term-line';
@@ -757,7 +758,6 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
 
       if (type === 'correct') {
         const email = document.getElementById('email').value.trim();
-        const page  = document.getElementById('page').value.trim();
         const rgpd  = document.getElementById('rgpd').checked;
         if (email && rgpd) {
           fetch('https://formspree.io/f/VOTRE_ENDPOINT', {
