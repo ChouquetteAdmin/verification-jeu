@@ -763,7 +763,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
   fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
     method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, page, rgpd: true, source: 'verification-jeu' })
+            body: JSON.stringify({ email, rgpd: true, source: 'verification-jeu' })
           });
         }
       }
