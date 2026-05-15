@@ -1,14 +1,801 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.4">
-  <style type="text/css">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>L'Assassin n'est pas Lucas par Détective Yvonne</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #1c1c1c;
+      --red:       #c0392b;
+      --red2:      #e74c3c;
+      --gold:      #c9a84c;
+      --ip-blue:   #0d2d6b;
+      --ip-blue2:  #163d8a;
+      --ip-light:  #3a7fd4;
+      --ip-border: #1e4080;
+      --green:     #00e676;
+      --mono:      'Share Tech Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; background: #1c1c1c; background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.04'/%3E%3C/svg%3E"); }
+
+    body {
+      background: #1c1c1c;
+      color: #ffffff;
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 1.1rem;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: #1c1c1c;
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
+      border-bottom: 1px solid #8B0000;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    .site-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.2rem, 12vw, 6rem);
+      line-height: 0.9;
+      letter-spacing: 0.02em;
+      color: #ffffff;
+    }
+    .site-title .accent-red  { color: var(--red); }
+    .site-title .accent-name { color: #ffffff; }
+
+    /* MAIN */
+    main {
+      max-width: 660px;
+      margin: 0 auto;
+      padding: 0px 24px 0;
+      background: #1c1c1c;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.06em;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+    .section-rule {
+      height: 2px;
+      background: linear-gradient(to right, var(--red), transparent);
+      margin-bottom: 24px;
+    }
+    .section-body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: #cccccc;
+      margin-bottom: 18px;
+    }
+    .section-body em     { color: #fff; font-style: italic; }
+    .section-body strong { color: var(--gold); }
+
+    /* ═══════════════════════════════
+       INTERPOL PORTAL — FOND BLANC
+    ═══════════════════════════════ */
+    .portal-wrap {
+      margin: 36px 0 0;
+      border: 1px solid var(--ip-border);
+      border-radius: 3px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(58,127,212,0.12),
+        0 0 40px rgba(13,45,107,0.35),
+        0 16px 64px rgba(0,0,0,0.6);
+    }
+
+    /* Window titlebar */
+    .portal-titlebar {
+      background: linear-gradient(180deg, #1c2e50 0%, #142240 100%);
+      border-bottom: 2px solid var(--ip-blue2);
+    }
+    .titlebar-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+    }
+    .titlebar-dots { display: flex; gap: 6px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-red   { background: #ff5f57; }
+    .dot-amber { background: #febc2e; }
+    .dot-green { background: #28c840; }
+    .titlebar-label {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    .titlebar-status {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: var(--green);
+    }
+    .titlebar-status::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    /* Blue Interpol banner */
+    .portal-banner {
+      background: linear-gradient(135deg, #0d2d6b 0%, #163d8a 60%, #0d2d6b 100%);
+      padding: 20px 24px 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 3px solid rgba(58,127,212,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+    .portal-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 41px);
+    }
+    .interpol-badge { width: 52px; height: 52px; flex-shrink: 0; position: relative; z-index: 1; }
+    .banner-text { position: relative; z-index: 1; }
+    .banner-title {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #fff;
+      font-weight: 700;
+    }
+    .banner-subtitle {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.5);
+      margin-top: 3px;
+      text-transform: uppercase;
+    }
+    .banner-ref { margin-left: auto; text-align: right; position: relative; z-index: 1; }
+    .banner-ref span {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+    }
+    .banner-ref strong {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ip-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* Portal body — FOND BLANC */
+    .portal-body {
+      background: #ffffff;
+      padding: 28px 28px 24px;
+      position: relative;
+    }
+
+    /* Tabs */
+    .portal-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+    .ptab {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      color: #aaa;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+    .ptab.active {
+      color: var(--ip-blue2);
+      border-bottom-color: var(--ip-blue2);
+      background: rgba(22,61,138,0.04);
+    }
+
+    /* Classification strip */
+    .classif {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 8px 12px;
+      background: rgba(192,57,43,0.05);
+      border: 1px solid rgba(192,57,43,0.2);
+      border-radius: 1px;
+    }
+    .classif-badge {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 2px 7px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .classif-text {
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      color: #888;
+      letter-spacing: 0.06em;
+    }
+
+    /* Form field */
+    .db-field { margin-bottom: 16px; }
+    .db-field label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ip-blue2);
+      margin-bottom: 6px;
+    }
+    .db-field label::before { content: '▸'; font-size: 0.7rem; }
+    .db-field input {
+      width: 100%;
+      background: #f7f9fc;
+      border: 1px solid #c5d4e8;
+      border-radius: 1px;
+      padding: 11px 14px;
+      font-family: var(--mono);
+      font-size: 0.92rem;
+      color: #111;
+      outline: none;
+      letter-spacing: 0.08em;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .db-field input:focus {
+      border-color: var(--ip-light);
+      box-shadow: 0 0 0 3px rgba(58,127,212,0.12);
+      background: #fff;
+    }
+    .db-field input::placeholder { color: #bbb; }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 13px;
+      background: linear-gradient(180deg, var(--ip-blue2) 0%, var(--ip-blue) 100%);
+      color: #fff;
+      border: 1px solid var(--ip-light);
+      border-radius: 1px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      box-shadow: 0 0 16px rgba(58,127,212,0.2);
+      margin-top: 4px;
+    }
+    .submit-btn:hover {
+      background: linear-gradient(180deg, #1e5ab8 0%, var(--ip-blue2) 100%);
+      box-shadow: 0 0 28px rgba(58,127,212,0.35);
+      transform: translateY(-1px);
+    }
+    .submit-btn:active { transform: translateY(0); }
+
+    /* Result */
+    .result {
+      margin-top: 16px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.4s;
+      border-radius: 1px;
+    }
+    .result.show { max-height: 200px; padding: 16px; }
+    .result.correct {
+      background: rgba(0,180,80,0.07);
+      border: 1px solid rgba(0,180,80,0.3);
+    }
+    .result.wrong {
+      background: rgba(192,57,43,0.06);
+      border: 1px solid rgba(192,57,43,0.25);
+    }
+    .result-status {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .result.correct .result-status { color: #1a9e50; }
+    .result.wrong   .result-status { color: var(--red); }
+    .result-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .result.correct .result-title { color: #111; }
+    .result.wrong   .result-title { color: var(--red); }
+    .result-text {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      text-align: center;
+      line-height: 1.6;
+      letter-spacing: 0.04em;
+    }
+    .result.correct .result-text { color: #1a9e50; }
+    .result.wrong   .result-text { color: #999; }
+
+    /* Terminal */
+    .terminal {
+      margin-top: 18px;
+      padding: 12px 14px;
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 1px;
+      min-height: 52px;
+    }
+    .term-line {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: #2a6a3a;
+      letter-spacing: 0.06em;
+      line-height: 1.7;
+    }
+    .term-line.active { color: var(--green); }
+    .term-line.err    { color: var(--red2); }
+    .cursor-block {
+      display: inline-block;
+      width: 8px; height: 13px;
+      background: var(--green);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: cblink 0.9s step-end infinite;
+    }
+    @keyframes cblink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Status bar */
+    .portal-statusbar {
+      background: #f0f4fa;
+      border-top: 1px solid #dde4f0;
+      padding: 7px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .status-left { font-family: var(--mono); font-size: 0.57rem; color: #aaa; letter-spacing: 0.1em; text-transform: uppercase; }
+    .status-right { font-family: var(--mono); font-size: 0.57rem; color: var(--ip-blue2); opacity: 0.6; letter-spacing: 0.1em; }
+
+    /* CONTACT */
+    .contact-section {
+      background: #1c1c1c;
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
+      padding: 40px 0 40px;
+      width: 100%;
+      border-top: 1px solid #8B0000;
+    }
+    .contact-section .section-title { color: #fff; }
+    .contact-section .section-body  { color: rgba(255,255,255,0.85); }
+    .contact-section .section-rule  { background: linear-gradient(to right, rgba(255,255,255,0.5), transparent); }
+    .contact-section a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.5);
+      transition: opacity 0.2s;
+    }
+    .contact-section a:hover { opacity: 0.75; }
+
+    .amazon-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      background: #E47911;
+      border: 1.5px solid #F5A623;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .amazon-btn:hover {
+      background: #F5A623;
+      border-color: #F5A623;
+      box-shadow: 0 0 28px rgba(228,121,17,0.45);
+      transform: translateY(-1px);
+    }
+    .amazon-btn:active { transform: translateY(0); }
+    .amazon-popup-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .amazon-popup-overlay.show { opacity: 1; pointer-events: all; }
+    .amazon-popup {
+      background: #1c1c1c;
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
+      border: 1px solid #8B0000;
+      border-radius: 3px;
+      max-width: 420px;
+      width: 100%;
+      padding: 36px 32px 28px;
+      text-align: center;
+      transform: translateY(16px);
+      transition: transform 0.4s;
+      position: relative;
+    }
+    .amazon-popup-overlay.show .amazon-popup { transform: translateY(0); }
+    .amazon-popup-close {
+      position: absolute; top: 12px; right: 16px;
+      font-family: var(--mono); font-size: 1rem;
+      color: #666; cursor: pointer; background: none; border: none;
+      transition: color 0.2s;
+    }
+    .amazon-popup-close:hover { color: #fff; }
+    .amazon-popup-icon { font-size: 2rem; margin-bottom: 12px; }
+    .amazon-popup-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; letter-spacing: 0.08em;
+      color: #fff; margin-bottom: 10px;
+    }
+    .amazon-popup-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem; color: #ccc; line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .amazon-popup-link {
+      display: inline-flex; align-items: center; gap: 20px;
+      font-family: var(--mono); font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      color: #fff; background: #E47911;
+      border: 1.5px solid #F5A623;
+      padding: 12px 24px; border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .amazon-popup-link:hover {
+      background: #F5A623;
+      box-shadow: 0 0 20px rgba(228,121,17,0.4);
+    }
+
+    .db-field-row {
+      display: flex;
+      gap: 12px;
+    }
+    .db-field-row .db-field { flex: 1; }
+    .rgpd-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+      background: rgba(22,61,138,0.04);
+      border: 1px solid #e0e8f4;
+      border-radius: 1px;
+    }
+    .rgpd-field input[type="checkbox"] {
+      margin-top: 2px;
+      flex-shrink: 0;
+      width: 14px; height: 14px;
+      accent-color: var(--ip-blue2);
+      cursor: pointer;
+    }
+    .rgpd-field label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.06em;
+      color: #888;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .rgpd-field label::before { display: none; }
+
+    /* FOOTER */
+    footer {
+      background: var(--red);
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .footer-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(1rem, 4vw, 1.4rem);
+      letter-spacing: 0.18em;
+      color: #fff;
+      line-height: 1.5;
+    }
+    .footer-dot { color: rgba(255,255,255,0.4); margin: 0 6px; }
   </style>
 </head>
 <body>
+  <header>
+    <h1 class="site-title">
+      L'ASSASSIN<br/><span class="accent-red">N'EST PAS</span> LUCAS
+    </h1>
+  </header>
+
+  <main>
+    <div><img src="livrelucas.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;"/></div>
+
+      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Vérification du Suspect</h2>
+    <p class="section-body">
+      Utilisez le portail sécurisé ci-dessous pour transmettre votre accusation à la
+      <em>Police</em>.
+    </p>
+    <p class="section-body">
+      Entrez le prénom du suspect que vous pensez être l'assassin.
+Seul le véritable coupable permettra de déverrouiller le rapport final.
+    </p>
+    <p class="section-body" style="font-style:italic; color:#666; font-size:0.95rem;">
+      Attention: Assurez-vous d'avoir terminé votre enquête avant de soumettre votre réponse.
+    </p>
+
+    <!-- PORTAL -->
+    <div class="portal-wrap">
+
+      <div class="portal-titlebar">
+        <div class="titlebar-top">
+          <div class="titlebar-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-amber"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <span class="titlebar-label">Portail Sécurisé</span>
+          <span class="titlebar-status">CONNEXION ÉTABLIE</span>
+        </div>
+      </div>
+
+      <div class="portal-banner">
+        <svg class="interpol-badge" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="26,2 34,10 44,10 44,20 50,26 44,32 44,42 34,42 26,50 18,42 8,42 8,32 2,26 8,20 8,10 18,10" fill="#0d2d6b" stroke="#3a7fd4" stroke-width="1.5"/>
+          <polygon points="26,7 33,14 41,14 41,22 46,26 41,30 41,38 33,38 26,45 19,38 11,38 11,30 6,26 11,22 11,14 19,14" fill="#163d8a" stroke="#4a8fd4" stroke-width="0.8"/>
+          <circle cx="26" cy="26" r="10" fill="none" stroke="#4a8fd4" stroke-width="1.2"/>
+          <text x="26" y="30" text-anchor="middle" font-family="serif" font-size="11" font-weight="bold" fill="#fff">P</text>
+        </svg>
+        <div class="banner-text">
+          <div class="banner-title">Police</div>
+          <div class="banner-subtitle">Base de données nationale des Coupables</div>
+        </div>
+        <div class="banner-ref">
+          <span>DOSSIER</span>
+          <strong>#LUCAS</strong>
+        </div>
+      </div>
+
+      <div class="portal-body">
+
+        <div class="portal-tabs">
+          <div class="ptab active">Signaler</div>
+        </div>
+
+        <div class="classif">
+          <span class="classif-badge">Confidentiel</span>
+          <span class="classif-text">Vérification de suspect: Affaire Lucas</span>
+        </div>
+
+        <div class="db-field">
+          <label for="prenom">Identité du suspect</label>
+          <input type="text" id="prenom" placeholder="ENTRER LE PRÉNOM DU COUPABLE..." autocomplete="off" spellcheck="false"/>
+        </div>
+        
+          <div class="db-field">
+            <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
+            <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false"required/>
+          </div>
+
+        <div class="rgpd-field">
+          <input type="checkbox" id="rgpd"/>
+          <label for="rgpd">J'accepte de recevoir des communications de Détective Yvonne (nouveaux tomes).<br>Vous pouvez vous désinscrire à tout moment.</label>
+        </div>
+
+        <button class="submit-btn" onclick="verifier()">▶ Lancer la vérification</button>
+
+        <div class="result" id="result">
+          <div class="result-status" id="result-status"></div>
+          <div class="result-title" id="result-title"></div>
+          <div class="result-text" id="result-text"></div>
+        </div>
+
+        <div class="terminal" id="terminal">
+          <div class="term-line" id="tl1"></div>
+          <div class="term-line" id="tl2"></div>
+          <div class="term-line active" id="tl3"><span class="cursor-block"></span></div>
+        </div>
+
+      </div>
+
+      <div class="portal-statusbar">
+        <span class="status-left">Session: 256-bit AES &nbsp;|&nbsp; TLS 1.3</span>
+        <span class="status-right">police.com</span>
+      </div>
+
+    </div>
+
+  </main>
+
+  <div style="text-align:center; padding:48px 24px 48px; background:#1c1c1c;">
+    <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" class="amazon-btn">
+      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>      
+      <span>Découvrez Détective Yvonne<br><span style="color:#F5A623;">sur Amazon</span></span>
+    </a>
+  </div>
+
+  <div class="contact-section">
+    <div style="max-width:660px;margin:0 auto;padding:0 24px;">
+      <h2 class="section-title">Contact</h2>
+      <div class="section-rule"></div>
+      <p class="section-body">
+        Une question ? Contactez-nous à
+        <a href="mailto:contact@detective-yvonne.com">contact@detective-yvonne.com</a>
+      </p>
+    </div>
+  </div>
+
+  <footer>
+    <p class="footer-text">
+      <span class="footer-dot">•</span>Parmi 20.000 prénoms<span class="footer-dot">•</span>
+      <br>trouvez l'ASSASSIN
+    </p>
+  </footer>
+  
+   <div class="amazon-popup-overlay" id="reviewPopup">
+    <div class="amazon-popup">
+      <button class="amazon-popup-close" onclick="closePopup()">✕</button>
+      <div class="amazon-popup-icon">⭐</div>
+      <div class="amazon-popup-title">Vous avez aimé le livre ?</div>
+      <p class="amazon-popup-text">Votre avis compte énormément.<br>Laissez un commentaire sur Amazon et aidez d'autres lecteurs à découvrir l'enquête.</p>
+      <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H1QZQS4C" target="_blank" class="amazon-popup-link">
+        <img src="amazon.png" style="width:20px;height:20px;" alt="Amazon"/>
+        Laisser un avis<br>sur Amazon
+      </a>
+    </div>
+  </div>
+  
+  <script>
+    const COUPABLE = "Sasha";
+
+    const bootLines = [
+      { el: 'tl1', text: '> Connexion au serveur sécurisé... OK', delay: 400 },
+      { el: 'tl2', text: '> Chargement de la base de données... OK', delay: 1200 },
+    ];
+    bootLines.forEach(({ el, text, delay }) => {
+      setTimeout(() => typeInto(document.getElementById(el), text, 28), delay);
+    });
+    setTimeout(() => {
+      const t3 = document.getElementById('tl3');
+      t3.innerHTML = '';
+      typeInto(t3, "> En attente d'une accusation_", 32, true);
+    }, 2400);
+
+    function typeInto(el, text, speed, cursor = false) {
+      let i = 0;
+      function step() {
+        if (i <= text.length) {
+          el.innerHTML = text.slice(0, i) + (cursor ? '<span class="cursor-block"></span>' : '');
+          i++;
+          setTimeout(step, speed + Math.random() * 15);
+        }
+      }
+      step();
+    }
+
+    function normaliser(s) {
+      return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    }
+
+    function verifier() {
+      const val = document.getElementById('prenom').value;
+      const box = document.getElementById('result');
+      box.className = 'result';
+      box.classList.remove('show');
+
+      const t1 = document.getElementById('tl1');
+      const t2 = document.getElementById('tl2');
+      const t3 = document.getElementById('tl3');
+
+      if (!val.trim()) {
+        t3.className = 'term-line err';
+        t3.textContent = '> ERREUR : aucun identifiant saisi.';
+        return;
+      }
+      if (!document.getElementById('email').value.trim()) {
+      t3.className = 'term-line err';
+      t3.textContent = '> ERREUR : adresse e-mail requise.';
+      return;
+      }
+
+      t1.className = 'term-line';
+      t2.className = 'term-line';
+      t3.className = 'term-line';
+      t1.textContent = '> Recherche dans la base de données...';
+      t2.textContent = '';
+      t3.innerHTML = '<span class="cursor-block"></span>';
+
+      setTimeout(() => {
+        t2.textContent = `> Suspect : "${val.toUpperCase()}" — Analyse en cours...`;
+      }, 600);
+
+      setTimeout(() => {
+        if (normaliser(val) === normaliser(COUPABLE)) {
+          t3.className = 'term-line active';
+          t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
+          showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
+          setTimeout(showPopup, 2500);
+        } else {
+          t3.className = 'term-line err';
+          t3.textContent = '> AUCUNE CORRESPONDANCE — Suspect non reconnu.';
+          showResult('wrong', '[ ACCUSATION REJETÉE ]', 'Suspect Innocenté', 'Ce prénom ne correspond pas au coupable. Reprenez votre enquête.');
+        }
+      }, 1600);
+    }
+
+    function showResult(type, status, title, text) {
+      const box = document.getElementById('result');
+      box.className = 'result ' + type;
+      document.getElementById('result-status').textContent = status;
+      document.getElementById('result-title').textContent = title;
+      document.getElementById('result-text').textContent = text;
+      requestAnimationFrame(() => box.classList.add('show'));
+
+      if (type === 'correct') {
+        const email = document.getElementById('email').value.trim();
+        const rgpd  = document.getElementById('rgpd').checked;
+        if (email) {
+  fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
+  method: 'POST',
+  mode: 'no-cors',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, rgpd: rgpd, source: 'verification-jeu' })
+  });
+        }
+      }
+    }
+
+    function showPopup() {
+      document.getElementById('reviewPopup').classList.add('show');
+    }
+    function closePopup() {
+      document.getElementById('reviewPopup').classList.remove('show');
+    }
+    document.getElementById('reviewPopup').addEventListener('click', function(e) {
+      if (e.target === this) closePopup();
+    });
+
+    document.getElementById('prenom').addEventListener('keydown', e => {
+      if (e.key === 'Enter') verifier();
+    });
+  </script>
 </body>
 </html>
