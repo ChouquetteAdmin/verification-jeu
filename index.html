@@ -19,11 +19,9 @@
     .header { text-align: center; margin-bottom: 40px; }
     .avatar {
       width: 110px; height: 110px;
-      border-radius: 50%;
-      object-fit: cover;
+      border-radius: 50%; object-fit: cover;
       border: 2px solid #8B0000;
-      display: block;
-      margin: 0 auto 20px;
+      display: block; margin: 0 auto 20px;
     }
     .name {
       font-family: 'Bebas Neue', sans-serif;
@@ -33,23 +31,33 @@
     .subtitle {
       font-family: 'Poppins', sans-serif;
       font-size: 15px; font-weight: 500;
-      letter-spacing: 0.1em; color: #888;
-      text-transform: uppercase;
+      letter-spacing: 0.1em; color: #888; text-transform: uppercase;
     }
+
     .links { display: flex; flex-direction: column; gap: 28px; }
-    .folder-wrap { text-decoration: none; display: flex; flex-direction: column; }
+
+    /* Le wrapper a un padding-top pour laisser place à l'onglet */
+    .folder-wrap {
+      text-decoration: none;
+      display: block;
+      position: relative;
+      padding-top: 22px; /* hauteur de l'onglet */
+    }
+
     .folder-tab {
-      margin-left: 16px;
-      width: 130px; height: 20px;
+      position: absolute;
+      top: 0;
+      left: 16px;
+      width: 130px;
+      height: 22px;
       background: #8B0000;
       border-radius: 5px 5px 0 0;
       font-family: 'Share Tech Mono', monospace;
       font-size: 8px; letter-spacing: 0.2em;
-      color: #ffffff;
-      text-transform: uppercase;
+      color: #fff; text-transform: uppercase;
       display: flex; align-items: center; padding: 0 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
     }
+
     .card {
       position: relative;
       display: flex; align-items: center;
@@ -57,7 +65,6 @@
       overflow: hidden;
       padding: 18px 20px; gap: 16px;
       transition: filter 0.2s, transform 0.2s;
-      background: #D8C4B1;
       background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E"),
         linear-gradient(160deg, #D8C4B1 0%, #cbb89e 45%, #c4ae92 100%);
@@ -67,40 +74,22 @@
         inset 0 1px 0 rgba(255,255,255,0.08),
         inset 0 0 40px rgba(0,0,0,0.12);
       border: 1px solid #6a4520;
-      border-top: none;
     }
     .card::before {
       content: '';
       position: absolute; inset: 0;
       background: repeating-linear-gradient(
-        180deg,
-        transparent,
-        transparent 22px,
-        rgba(0,0,0,0.03) 22px,
-        rgba(0,0,0,0.03) 23px
-      );
-      pointer-events: none;
-    }
-    .card::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 8px,
-        rgba(255,255,255,0.015) 8px,
-        rgba(255,255,255,0.015) 9px
+        180deg, transparent, transparent 22px,
+        rgba(0,0,0,0.03) 22px, rgba(0,0,0,0.03) 23px
       );
       pointer-events: none;
     }
     .folder-wrap:hover .card { filter: brightness(1.08); transform: translateY(-2px); }
     .folder-wrap:hover .folder-tab { filter: brightness(1.08); }
+
     .card-img {
-      width: 42px; height: 60px;
-      object-fit: cover;
-      display: block;
-      border-radius: 2px; flex-shrink: 0;
-      box-shadow: none;
+      width: 42px; height: 60px; object-fit: cover;
+      display: block; border-radius: 2px; flex-shrink: 0;
     }
     .card-body { flex: 1; position: relative; z-index: 1; }
     .card-label {
@@ -118,19 +107,18 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 14px; color: #fff;
       letter-spacing: 0.1em; margin-top: 8px;
-      display: inline-block;
+      display: inline-flex; align-items: center; gap: 6px;
       background: #E47911;
-      padding: 7px 16px;
-      border-radius: 2px;
-      text-transform: uppercase;
-      text-decoration: none;
+      padding: 7px 16px; border-radius: 2px;
+      text-transform: uppercase; text-decoration: none;
     }
+    .card-sub img { height: 0.75em; width: auto; }
     .arrow {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 24px; flex-shrink: 0;
-      position: relative; z-index: 1;
-      color: #8B0000;
+      position: relative; z-index: 1; color: #8B0000;
     }
+
     .social { text-align: center; margin-top: 28px; }
     .mail-icon {
       display: inline-flex; align-items: center; justify-content: center;
@@ -161,7 +149,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">L'Assassin <span class="red">N'est pas</span> Lucas</div>
-            <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" style="height:0.75em;width:auto;vertical-align:middle;margin:0 4px;"> →</a>
+            <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -170,11 +158,11 @@
       <a href="#" class="folder-wrap">
         <div class="folder-tab">Affaire #2</div>
         <div class="card">
-          <img src="livre2.png" alt="L'ASSASSIN N'EST PAS LAURA" class="card-img"/>
+          <img src="livre2.png" alt="L'Assassin n'est pas Laura" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">L'Assassin <span class="red">N'est pas</span> Laura</div>
-            <a href="https://www.amazon.fr/dp/B0H2CVM4HN" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" style="height:0.75em;width:auto;vertical-align:middle;margin:0 4px;"> →</a>
+            <a href="https://www.amazon.fr/dp/B0H2CVM4HN" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -187,7 +175,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Qui a tué <span class="red">OUSMANE</span></div>
-            <a href="https://www.amazon.fr/dp/B0H2J4GY3R" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" style="height:0.75em;width:auto;vertical-align:middle;margin:0 4px;"> →</a>
+            <a href="https://www.amazon.fr/dp/B0H2J4GY3R" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -200,7 +188,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Le Cadavre n'est pas <span class="red">à PARIS</span></div>
-            <div class="card-sub">Acheter sur <img src="amzblack.png" style="height:0.75em;width:auto;vertical-align:middle;margin:0 4px;"> →</div>
+            <div class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -213,7 +201,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Le Coupable N'est Pas <span class="red">MARIE</span></div>
-            <div class="card-sub">Acheter sur <img src="amzblack.png" style="height:0.75em;width:auto;vertical-align:middle;margin:0 4px;"> →</div>
+            <div class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
