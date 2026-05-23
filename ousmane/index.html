@@ -31,6 +31,29 @@
       min-height: 100vh;
     }
 
+    /* TOPBAR */
+    .topbar {
+      background: #111;
+      border-bottom: 1px solid #2a2a2a;
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+    }
+    .topbar a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .topbar a:hover { color: #fff; }
+    .topbar a::before { content: '←'; font-size: 0.8rem; }
+
     /* HEADER */
     header {
       background: #1c1c1c;
@@ -597,6 +620,9 @@
   </style>
 </head>
 <body>
+  <div class="topbar">
+    <a href="https://detective-yvonne.com">Accueil</a>
+  </div>
   <header>
     <h1 class="site-title">
       <span class="accent-name">QUI A TUÉ</span><br/><span class="accent-red">OUSMANE ?</span>
