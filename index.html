@@ -34,42 +34,18 @@
       letter-spacing: 0.1em; color: #888; text-transform: uppercase;
     }
 
-    .links { display: flex; flex-direction: column; gap: 28px; }
+    .links { display: flex; flex-direction: column; gap: 32px; }
 
-    .folder-wrap {
-      text-decoration: none;
-      display: block;
-    }
+    .folder-wrap { text-decoration: none; display: block; }
 
-    /* L'onglet est rendu via un wrapper séparé, collé sans espace */
-    .folder-top {
-      display: flex;
-      align-items: flex-end;
-      height: 22px;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .folder-tab {
-      display: inline-flex;
-      align-items: center;
-      margin-left: 16px;
-      width: 130px;
-      height: 22px;
-      background: #8B0000;
-      border-radius: 5px 5px 0 0;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px; letter-spacing: 0.2em;
-      color: #fff; text-transform: uppercase;
-      padding: 0 10px;
-    }
-
+    /* La carte contient l'onglet en son sein */
     .card {
       position: relative;
       display: flex; align-items: center;
       border-radius: 0 6px 6px 6px;
-      overflow: hidden;
+      overflow: visible;
       padding: 18px 20px; gap: 16px;
+      margin-top: 22px; /* espace pour l'onglet */
       transition: filter 0.2s, transform 0.2s;
       background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E"),
@@ -81,7 +57,24 @@
         inset 0 0 40px rgba(0,0,0,0.12);
       border: 1px solid #6a4520;
     }
-    .card::before {
+
+    /* Onglet collé en haut */
+    .folder-tab {
+      position: absolute;
+      top: -22px;
+      left: 0;
+      width: 130px;
+      height: 22px;
+      background: #8B0000;
+      border-radius: 5px 5px 0 0;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px; letter-spacing: 0.2em;
+      color: #fff; text-transform: uppercase;
+      display: flex; align-items: center; padding: 0 10px;
+    }
+
+    /* Lignes papier */
+    .card::after {
       content: '';
       position: absolute; inset: 0;
       background: repeating-linear-gradient(
@@ -90,8 +83,8 @@
       );
       pointer-events: none;
     }
+
     .folder-wrap:hover .card { filter: brightness(1.08); transform: translateY(-2px); }
-    .folder-wrap:hover .folder-tab { filter: brightness(1.08); transform: translateY(-2px); }
 
     .card-img {
       width: 42px; height: 60px; object-fit: cover;
@@ -149,8 +142,8 @@
     <div class="links">
 
       <a href="/lucas" class="folder-wrap">
-        <div class="folder-top"><div class="folder-tab">Affaire #1</div></div>
         <div class="card">
+          <div class="folder-tab">Affaire #1</div>
           <img src="livrelucas.png" alt="L'Assassin n'est pas Lucas" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
@@ -162,8 +155,8 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-top"><div class="folder-tab">Affaire #2</div></div>
         <div class="card">
+          <div class="folder-tab">Affaire #2</div>
           <img src="livre2.png" alt="L'Assassin n'est pas Laura" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
@@ -175,8 +168,8 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-top"><div class="folder-tab">Affaire #3</div></div>
         <div class="card">
+          <div class="folder-tab">Affaire #3</div>
           <img src="livre3.png" alt="Qui a tué Ousmane" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
@@ -188,8 +181,8 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-top"><div class="folder-tab">Affaire #4</div></div>
         <div class="card">
+          <div class="folder-tab">Affaire #4</div>
           <img src="livre4.png" alt="Le cadavre n'est pas à Paris" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
@@ -201,8 +194,8 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-top"><div class="folder-tab">Affaire #5</div></div>
         <div class="card">
+          <div class="folder-tab">Affaire #5</div>
           <img src="livre5.png" alt="Le coupable n'est pas Marie" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
