@@ -7,19 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body {
+    body {
       min-height: 100vh;
       background: #111;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow-x: hidden;
-    }
-    .wrap {
-      width: 100%;
-      max-width: 520px;
       padding: 40px 20px;
     }
+    .wrap { width: 100%; max-width: 520px; }
     .header { text-align: center; margin-bottom: 40px; }
     .avatar {
       width: 110px; height: 110px;
@@ -31,125 +27,193 @@
     }
     .name {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 48px;
-      color: #fff;
-      letter-spacing: 0.06em;
-      line-height: 1;
-      margin-bottom: 8px;
+      font-size: 48px; color: #fff;
+      letter-spacing: 0.06em; line-height: 1; margin-bottom: 8px;
     }
     .subtitle {
       font-family: 'Poppins', sans-serif;
-      font-size: 15px;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      color: #888;
+      font-size: 15px; font-weight: 500;
+      letter-spacing: 0.1em; color: #888;
       text-transform: uppercase;
     }
-    .links { display: flex; flex-direction: column; gap: 14px; }
+    .links { display: flex; flex-direction: column; gap: 28px; }
+    .folder-wrap { text-decoration: none; display: block; }
+    .folder-tab {
+      position: relative; left: 16px;
+      width: 130px; height: 20px;
+      background: #D8C4B1;
+      border-radius: 5px 5px 0 0;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 8px; letter-spacing: 0.2em;
+      color: #d4a870;
+      text-transform: uppercase;
+      display: flex; align-items: center; padding: 0 10px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
     .card {
-      display: flex;
-      align-items: center;
-      background: rgba(255,255,255,0.18);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 12px;
-      text-decoration: none;
+      position: relative;
+      display: flex; align-items: center;
+      border-radius: 0 6px 6px 6px;
       overflow: hidden;
-      padding: 14px 18px;
-      gap: 16px;
-      transition: background 0.2s, border-color 0.2s;
+      padding: 18px 20px; gap: 16px;
+      transition: filter 0.2s, transform 0.2s;
+      background: #D8C4B1;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E"),
+        linear-gradient(160deg, #9e6b3e 0%, #8b5a2e 45%, #7a4e24 100%);
+      box-shadow:
+        0 3px 0 #4a2e10,
+        0 5px 16px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.08),
+        inset 0 0 40px rgba(0,0,0,0.12);
+      border: 1px solid #6a4520;
+      border-top: none;
     }
-    .card:hover {
-      background: rgba(255,255,255,0.24);
-      border-color: rgba(255,255,255,0.35);
+    .card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        180deg,
+        transparent,
+        transparent 22px,
+        rgba(0,0,0,0.03) 22px,
+        rgba(0,0,0,0.03) 23px
+      );
+      pointer-events: none;
     }
+    .card::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 8px,
+        rgba(255,255,255,0.015) 8px,
+        rgba(255,255,255,0.015) 9px
+      );
+      pointer-events: none;
+    }
+    .folder-wrap:hover .card { filter: brightness(1.08); transform: translateY(-2px); }
+    .folder-wrap:hover .folder-tab { filter: brightness(1.08); }
     .card-img {
-      width: 42px;
-      height: 60px;
+      width: 42px; height: 60px;
       object-fit: cover;
       display: block;
-      border-radius: 3px;
-      flex-shrink: 0;
+      border-radius: 2px; flex-shrink: 0;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.4);
     }
-    .card-logo {
-      width: 42px;
-      height: 42px;
-      object-fit: contain;
-      display: block;
-      flex-shrink: 0;
-    }
-    .card-body { flex: 1; }
+    .card-body { flex: 1; position: relative; z-index: 1; }
     .card-label {
       font-family: 'Share Tech Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.2em;
-      color: #aaa;
-      text-transform: uppercase;
-      margin-bottom: 7px;
+      font-size: 8px; letter-spacing: 0.2em;
+      color: #c49060; text-transform: uppercase; margin-bottom: 4px;
     }
-    .card-label.orange { color: #E47911; }
     .card-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 21px;
-      color: #fff;
-      letter-spacing: 0.05em;
-      line-height: 1.15;
+      font-size: 20px; color: #f0dfc0;
+      letter-spacing: 0.05em; line-height: 1.15;
     }
-    .card-title .red { color: #c0392b; }
+    .card-title .red { color: #cc3322; }
+    .card-sub {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px; color: #d4a870;
+      letter-spacing: 0.08em; margin-top: 4px;
+    }
     .arrow {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 24px;
-      flex-shrink: 0;
+      font-size: 24px; flex-shrink: 0;
+      position: relative; z-index: 1;
+      color: #d4a870;
     }
     .social { text-align: center; margin-top: 28px; }
     .mail-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      text-decoration: none;
-      transition: color 0.2s;
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #aaa; text-decoration: none; transition: color 0.2s;
     }
     .mail-icon:hover { color: #fff; }
     .footer {
-      text-align: center;
-      margin-top: 10px;
+      text-align: center; margin-top: 10px;
       font-family: 'Poppins', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: #aaa;
-      text-transform: uppercase;
+      font-size: 10px; letter-spacing: 0.14em;
+      color: #aaa; text-transform: uppercase;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-
     <div class="header">
       <img src="yvonne.png" alt="Détective Yvonne" class="avatar"/>
       <div class="name">Détective Yvonne</div>
       <div class="subtitle">Jeux d'enquête</div>
     </div>
-
     <div class="links">
 
-      <a href="/lucas" class="card">
-        <img src="livrelucas.png" alt="L'Assassin n'est pas Lucas" class="card-img"/>
-        <div class="card-body">
-          <div class="card-title">Vérification Affaire #1<br>L'Assassin <span class="red">N'est pas</span> Lucas</div>
+      <a href="/lucas" class="folder-wrap">
+        <div class="folder-tab">Affaire #1</div>
+        <div class="card">
+          <img src="livrelucas.png" alt="L'Assassin n'est pas Lucas" class="card-img"/>
+          <div class="card-body">
+            <div class="card-label">Vérification</div>
+            <div class="card-title">L'Assassin <span class="red">N'est pas</span> Lucas</div>
+            <div class="card-sub">Acheter sur Amazon →</div>
+          </div>
+          <div class="arrow">→</div>
         </div>
-        <div class="arrow" style="color:#c0392b;">→</div>
       </a>
 
-      <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" class="card">
-        <img src="amazonblanc.png" alt="Amazon" class="card-logo"/>
-        <div class="card-body">
-          <div class="card-title">Acheter<br>L'Assassin <span style="color:#ff9900;">N'est pas</span> Lucas</div>
+      <a href="#" class="folder-wrap">
+        <div class="folder-tab">Affaire #2</div>
+        <div class="card">
+          <img src="livre2.png" alt="L'ASSASSIN N'EST PAS LAURA" class="card-img"/>
+          <div class="card-body">
+            <div class="card-label">Vérification</div>
+            <div class="card-title">L'Assassin <span class="red">N'est pas</span> Laura</span></div>
+            <div class="card-sub">Acheter sur Amazon →</div>
+          </div>
+          <div class="arrow">→</div>
         </div>
-        <div class="arrow" style="color:#ff9900;">→</div>
+      </a>
+
+      <a href="#" class="folder-wrap">
+        <div class="folder-tab">Affaire #3</div>
+        <div class="card">
+          <img src="livre3.png" alt="Qui a tué Ousmane" class="card-img"/>
+          <div class="card-body">
+            <div class="card-label">Vérification</div>
+            <div class="card-title">Qui a tué <span class="red">OUSMANE</span></div>
+            <div class="card-sub">Acheter sur Amazon →</div>
+          </div>
+          <div class="arrow">→</div>
+        </div>
+      </a>
+
+      <a href="#" class="folder-wrap">
+        <div class="folder-tab">Affaire #4</div>
+        <div class="card">
+          <img src="livre4.png" alt="Le cadavre n'est pas à Paris" class="card-img"/>
+          <div class="card-body">
+            <div class="card-label">Vérification</div>
+            <div class="card-title">Le Cadavre n'est pas <span class="red">à PARIS</span></div>
+            <div class="card-sub">Acheter sur Amazon →</div>
+          </div>
+          <div class="arrow">→</div>
+        </div>
+      </a>
+
+      <a href="#" class="folder-wrap">
+        <div class="folder-tab">Affaire #5</div>
+        <div class="card">
+          <img src="livre4.png" alt="Le coupable n'est pas Marie" class="card-img"/>
+          <div class="card-body">
+            <div class="card-label">Vérification</div>
+            <div class="card-title">Le Coupable N'est Pas <span class="red">MARIE</span></div>
+            <div class="card-sub">Acheter sur Amazon →</div>
+          </div>
+          <div class="arrow">→</div>
+        </div>
       </a>
 
     </div>
-
     <div class="social">
       <a href="mailto:contact@detective-yvonne.com" class="mail-icon" aria-label="Envoyer un email">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -158,9 +222,7 @@
         </svg>
       </a>
     </div>
-
     <div class="footer">detective-yvonne.com</div>
-
   </div>
 </body>
 </html>
