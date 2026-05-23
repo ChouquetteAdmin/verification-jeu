@@ -36,18 +36,24 @@
 
     .links { display: flex; flex-direction: column; gap: 28px; }
 
-    /* Le wrapper a un padding-top pour laisser place à l'onglet */
     .folder-wrap {
       text-decoration: none;
       display: block;
-      position: relative;
-      padding-top: 22px; /* hauteur de l'onglet */
+    }
+
+    /* L'onglet est rendu via un wrapper séparé, collé sans espace */
+    .folder-top {
+      display: flex;
+      align-items: flex-end;
+      height: 22px;
+      margin-bottom: 0;
+      padding-bottom: 0;
     }
 
     .folder-tab {
-      position: absolute;
-      top: 0;
-      left: 16px;
+      display: inline-flex;
+      align-items: center;
+      margin-left: 16px;
       width: 130px;
       height: 22px;
       background: #8B0000;
@@ -55,7 +61,7 @@
       font-family: 'Share Tech Mono', monospace;
       font-size: 8px; letter-spacing: 0.2em;
       color: #fff; text-transform: uppercase;
-      display: flex; align-items: center; padding: 0 10px;
+      padding: 0 10px;
     }
 
     .card {
@@ -85,7 +91,7 @@
       pointer-events: none;
     }
     .folder-wrap:hover .card { filter: brightness(1.08); transform: translateY(-2px); }
-    .folder-wrap:hover .folder-tab { filter: brightness(1.08); }
+    .folder-wrap:hover .folder-tab { filter: brightness(1.08); transform: translateY(-2px); }
 
     .card-img {
       width: 42px; height: 60px; object-fit: cover;
@@ -143,7 +149,7 @@
     <div class="links">
 
       <a href="/lucas" class="folder-wrap">
-        <div class="folder-tab">Affaire #1</div>
+        <div class="folder-top"><div class="folder-tab">Affaire #1</div></div>
         <div class="card">
           <img src="livrelucas.png" alt="L'Assassin n'est pas Lucas" class="card-img"/>
           <div class="card-body">
@@ -156,7 +162,7 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-tab">Affaire #2</div>
+        <div class="folder-top"><div class="folder-tab">Affaire #2</div></div>
         <div class="card">
           <img src="livre2.png" alt="L'Assassin n'est pas Laura" class="card-img"/>
           <div class="card-body">
@@ -169,7 +175,7 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-tab">Affaire #3</div>
+        <div class="folder-top"><div class="folder-tab">Affaire #3</div></div>
         <div class="card">
           <img src="livre3.png" alt="Qui a tué Ousmane" class="card-img"/>
           <div class="card-body">
@@ -182,7 +188,7 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-tab">Affaire #4</div>
+        <div class="folder-top"><div class="folder-tab">Affaire #4</div></div>
         <div class="card">
           <img src="livre4.png" alt="Le cadavre n'est pas à Paris" class="card-img"/>
           <div class="card-body">
@@ -195,7 +201,7 @@
       </a>
 
       <a href="#" class="folder-wrap">
-        <div class="folder-tab">Affaire #5</div>
+        <div class="folder-top"><div class="folder-tab">Affaire #5</div></div>
         <div class="card">
           <img src="livre5.png" alt="Le coupable n'est pas Marie" class="card-img"/>
           <div class="card-body">
