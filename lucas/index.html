@@ -312,7 +312,7 @@
       transition: max-height 0.5s cubic-bezier(0.16,1,0.3,1), padding 0.4s;
       border-radius: 1px;
     }
-    .result.show { max-height: 200px; padding: 16px; }
+    .result.show { max-height: 800px; padding: 16px; }
     .result.correct {
       background: rgba(0,180,80,0.07);
       border: 1px solid rgba(0,180,80,0.3);
@@ -320,6 +320,38 @@
     .result.wrong {
       background: rgba(192,57,43,0.06);
       border: 1px solid rgba(192,57,43,0.25);
+    }
+    .result-photo-wrap {
+      display: none;
+      margin: 16px auto 0;
+      max-width: 260px;
+      border: 2px solid rgba(0,180,80,0.4);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .result.correct.show .result-photo-wrap { display: block; }
+    .result-photo-wrap img { width: 100%; height: auto; display: block; }
+    .result-motive {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      background: rgba(0,0,0,0.04);
+      border-left: 3px solid rgba(0,180,80,0.5);
+    }
+    .result.correct.show .result-motive { display: block; }
+    .result-motive-label {
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1a9e50;
+      margin-bottom: 8px;
+    }
+    .result-motive-text {
+      font-family: 'Crimson Pro', serif;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #333;
     }
     .result-status {
       font-family: var(--mono);
@@ -626,6 +658,19 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           <div class="result-status" id="result-status"></div>
           <div class="result-title" id="result-title"></div>
           <div class="result-text" id="result-text"></div>
+          <div class="result-photo-wrap">
+            <img src="coupable-lucas.png" alt="Le coupable"/>
+          </div>
+          <div class="result-motive">
+            <div class="result-motive-label">▸ Mobile du crime</div>
+            <div class="result-motive-text">
+              Sasha entretenait une rancœur profonde envers la victime depuis plusieurs années.
+              Une dette non remboursée, des humiliations répétées en public, et une trahison
+              finale ont fini par pousser Sasha à l'acte. Le soir du crime, profitant de la
+              confusion générale lors de la soirée, Sasha a agi seul(e), méthodiquement,
+              sans laisser de témoins.
+            </div>
+          </div>
         </div>
 
         <div class="terminal" id="terminal">
@@ -752,11 +797,21 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           t3.className = 'term-line active';
           t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
           showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
-          setTimeout(showPopup, 2500);
+          setTimeout(showPopup, 10000);
         } else {
           t3.className = 'term-line err';
           t3.textContent = '> AUCUNE CORRESPONDANCE — Suspect non reconnu.';
           showResult('wrong', '[ ACCUSATION REJETÉE ]', 'Suspect Innocenté', 'Ce prénom ne correspond pas au coupable. Reprenez votre enquête.');
+          const emailWrong = document.getElementById('email').value.trim();
+          const rgpdWrong  = document.getElementById('rgpd').checked;
+          if (emailWrong) {
+            fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email: emailWrong, rgpd: rgpdWrong, suspect: val, source: 'mauvais-suspect-lucas' })
+            });
+          }
         }
       }, 1600);
     }
