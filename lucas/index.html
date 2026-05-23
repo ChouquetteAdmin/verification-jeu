@@ -522,7 +522,32 @@
       background: #F5A623;
       box-shadow: 0 0 20px rgba(228,121,17,0.4);
     }
-
+    .result-review-btn {
+  display: none;
+  margin-top: 16px;
+  text-align: center;
+    }
+    .result.correct.show .result-review-btn { display: block; }
+    .result-review-btn a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #E47911;
+  border: 1.5px solid #F5A623;
+  padding: 10px 20px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.result-review-btn a:hover {
+  background: #F5A623;
+  box-shadow: 0 0 20px rgba(228,121,17,0.4);
+}
     .db-field-row {
       display: flex;
       gap: 12px;
@@ -669,6 +694,11 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
               Elle passe à l'acte dans la chambre 217 dans un excès de colère.
             </div>
           </div>
+        <div class="result-review-btn">
+          <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H1QZQS4C" target="_blank">
+        <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
+        </a>
+        </div>
         </div>
 
         <div class="terminal" id="terminal">
