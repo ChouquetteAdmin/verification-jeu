@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>L'Assassin n'est pas Lucas par Détective Yvonne</title>
+  <title>Qui a tué Ousmane ? par Détective Yvonne</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -523,31 +523,31 @@
       box-shadow: 0 0 20px rgba(228,121,17,0.4);
     }
     .result-review-btn {
-  display: none;
-  margin-top: 16px;
-  text-align: center;
+      display: none;
+      margin-top: 16px;
+      text-align: center;
     }
     .result.correct.show .result-review-btn { display: block; }
     .result-review-btn a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #E47911;
-  border: 1.5px solid #F5A623;
-  padding: 10px 20px;
-  border-radius: 3px;
-  text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s;
-}
-.result-review-btn a:hover {
-  background: #F5A623;
-  box-shadow: 0 0 20px rgba(228,121,17,0.4);
-}
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #E47911;
+      border: 1.5px solid #F5A623;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .result-review-btn a:hover {
+      background: #F5A623;
+      box-shadow: 0 0 20px rgba(228,121,17,0.4);
+    }
     .db-field-row {
       display: flex;
       gap: 12px;
@@ -599,21 +599,21 @@
 <body>
   <header>
     <h1 class="site-title">
-      L'ASSASSIN<br/><span class="accent-red">N'EST PAS</span> LUCAS
+      <span class="accent-name">QUI A TUÉ</span><br/><span class="accent-red">OUSMANE ?</span>
     </h1>
   </header>
 
   <main>
-    <div><img src="livrelucas.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;"/></div>
+    <div><img src="livreousmane.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;"/></div>
 
-      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Vérification du Suspect</h2>
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Vérification du Suspect</h2>
     <p class="section-body">
       Utilisez le portail sécurisé ci-dessous pour transmettre votre accusation à la
       <em>Police</em>.
     </p>
     <p class="section-body">
-      Entrez le prénom du suspect que vous pensez être l'assassin.
-Seul le véritable coupable permettra de déverrouiller le rapport final.
+      Entrez le prénom du suspect que vous pensez être le meurtrier d'Ousmane.
+      Seul le véritable coupable permettra de déverrouiller le rapport final.
     </p>
     <p class="section-body" style="font-style:italic; color:#666; font-size:0.95rem;">
       Attention: Assurez-vous d'avoir terminé votre enquête avant de soumettre votre réponse.
@@ -647,7 +647,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         </div>
         <div class="banner-ref">
           <span>DOSSIER</span>
-          <strong>#LUCAS</strong>
+          <strong>#OUSMANE</strong>
         </div>
       </div>
 
@@ -659,18 +659,18 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
 
         <div class="classif">
           <span class="classif-badge">Confidentiel</span>
-          <span class="classif-text">Vérification de suspect: Affaire Lucas</span>
+          <span class="classif-text">Vérification de suspect : Affaire Ousmane</span>
         </div>
 
         <div class="db-field">
           <label for="prenom">Identité du suspect</label>
           <input type="text" id="prenom" placeholder="ENTRER LE PRÉNOM DU COUPABLE..." autocomplete="off" spellcheck="false"/>
         </div>
-        
-          <div class="db-field">
-            <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
-            <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false"required/>
-          </div>
+
+        <div class="db-field">
+          <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
+          <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false" required/>
+        </div>
 
         <div class="rgpd-field">
           <input type="checkbox" id="rgpd"/>
@@ -684,19 +684,19 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           <div class="result-title" id="result-title"></div>
           <div class="result-text" id="result-text"></div>
           <div class="result-photo-wrap">
-            <img src="coupable-lucas.png" alt="Le coupable"/>
+            <img src="coupable-ousmane.png" alt="Le coupable"/>
           </div>
           <div class="result-motive">
             <div class="result-motive-label">▸ Mobile du crime</div>
-            <div class="result-motive-text">
-           Sasha aimait Lucas depuis toujours, mais lui ne l’a jamais vue que comme sa meilleure amie, connaissant chaque détail des préparatifs de la Saint-Valentin, elle a réservé à Emma une surprise macabre dans la chambre 217.
+            <div class="result-motive-text" id="result-motive-text">
+              Ousmane voulait annoncer à son ami une bonne nouvelle : il venait de signer dans un grand club. Mais cette nouvelle s'est avérée être le rêve de toute la vie de Kylian. Pris d'un excès de rage en l'apprenant, Kylian a commis l'irréparable.
             </div>
           </div>
-        <div class="result-review-btn">
-          <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H1QZQS4C" target="_blank">
-        <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
-        </a>
-        </div>
+          <div class="result-review-btn">
+            <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H2J4GY3R" target="_blank">
+              <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
+            </a>
+          </div>
         </div>
 
         <div class="terminal" id="terminal">
@@ -717,8 +717,8 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
   </main>
 
   <div style="text-align:center; padding:48px 24px 48px; background:#1c1c1c;">
-    <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" class="amazon-btn">
-      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>      
+    <a href="https://www.amazon.fr/dp/B0H2J4GY3R" target="_blank" class="amazon-btn">
+      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>
       <span>Découvrez Détective Yvonne<br><span style="color:#F5A623;">sur Amazon</span></span>
     </a>
   </div>
@@ -736,26 +736,27 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
 
   <footer>
     <p class="footer-text">
-      <span class="footer-dot">•</span>Parmi 20.000 prénoms<span class="footer-dot">•</span>
-      <br>trouvez l'ASSASSIN
+      <span class="footer-dot">•</span>Parmi 10.000 prénoms<span class="footer-dot">•</span>
+      <br>trouvez le MEURTRIER
     </p>
   </footer>
-  
-   <div class="amazon-popup-overlay" id="reviewPopup">
+
+  <div class="amazon-popup-overlay" id="reviewPopup">
     <div class="amazon-popup">
       <button class="amazon-popup-close" onclick="closePopup()">✕</button>
       <div class="amazon-popup-icon">⭐</div>
       <div class="amazon-popup-title">Vous avez aimé le livre ?</div>
       <p class="amazon-popup-text">Votre avis compte énormément.<br>Laissez un commentaire sur Amazon et aidez d'autres lecteurs à découvrir l'enquête.</p>
-      <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H1QZQS4C" target="_blank" class="amazon-popup-link">
+      <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H2J4GY3R" target="_blank" class="amazon-popup-link">
         <img src="amazon.png" style="width:20px;height:20px;" alt="Amazon"/>
         Laisser un avis<br>sur Amazon
       </a>
     </div>
   </div>
-  
+
   <script>
-    const COUPABLE = "Sasha";
+    // ⚠️ À REMPLACER : indiquez le prénom du vrai coupable de l'affaire Ousmane
+    const COUPABLE = "Kylian";
 
     const bootLines = [
       { el: 'tl1', text: '> Connexion au serveur sécurisé... OK', delay: 400 },
@@ -802,9 +803,9 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         return;
       }
       if (!document.getElementById('email').value.trim()) {
-      t3.className = 'term-line err';
-      t3.textContent = '> ERREUR : adresse e-mail requise.';
-      return;
+        t3.className = 'term-line err';
+        t3.textContent = '> ERREUR : adresse e-mail requise.';
+        return;
       }
 
       t1.className = 'term-line';
@@ -822,7 +823,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         if (normaliser(val) === normaliser(COUPABLE)) {
           t3.className = 'term-line active';
           t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
-          showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
+          showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable meurtrier d'Ousmane. L'enquête est résolue.");
           setTimeout(showPopup, 23000);
         } else {
           t3.className = 'term-line err';
@@ -835,7 +836,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
               method: 'POST',
               mode: 'no-cors',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email: emailWrong, rgpd: rgpdWrong, suspect: val, source: 'mauvais-suspect-lucas' })
+              body: JSON.stringify({ email: emailWrong, rgpd: rgpdWrong, suspect: val, source: 'mauvais-suspect-ousmane' })
             });
           }
         }
@@ -854,12 +855,12 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         const email = document.getElementById('email').value.trim();
         const rgpd  = document.getElementById('rgpd').checked;
         if (email) {
-  fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
-  method: 'POST',
-  mode: 'no-cors',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, rgpd: rgpd, source: 'verification-jeu' })
-  });
+          fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, rgpd: rgpd, source: 'verification-jeu-ousmane' })
+          });
         }
       }
     }
