@@ -523,31 +523,31 @@
       box-shadow: 0 0 20px rgba(228,121,17,0.4);
     }
     .result-review-btn {
-  display: none;
-  margin-top: 16px;
-  text-align: center;
+      display: none;
+      margin-top: 16px;
+      text-align: center;
     }
     .result.correct.show .result-review-btn { display: block; }
     .result-review-btn a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #E47911;
-  border: 1.5px solid #F5A623;
-  padding: 10px 20px;
-  border-radius: 3px;
-  text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s;
-}
-.result-review-btn a:hover {
-  background: #F5A623;
-  box-shadow: 0 0 20px rgba(228,121,17,0.4);
-}
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #E47911;
+      border: 1.5px solid #F5A623;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .result-review-btn a:hover {
+      background: #F5A623;
+      box-shadow: 0 0 20px rgba(228,121,17,0.4);
+    }
     .db-field-row {
       display: flex;
       gap: 12px;
@@ -606,7 +606,7 @@
   <main>
     <div><img src="livrelaura.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;"/></div>
 
-      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Vérification du Suspect</h2>
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Vérification du Suspect</h2>
     <p class="section-body">
       Utilisez le portail sécurisé ci-dessous pour transmettre votre accusation à la
       <em>Police</em>.
@@ -666,11 +666,11 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           <label for="prenom">Identité du suspect</label>
           <input type="text" id="prenom" placeholder="ENTRER LE PRÉNOM DU COUPABLE..." autocomplete="off" spellcheck="false"/>
         </div>
-        
-          <div class="db-field">
-            <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
-            <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false"required/>
-          </div>
+
+        <div class="db-field">
+          <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
+          <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false" required/>
+        </div>
 
         <div class="rgpd-field">
           <input type="checkbox" id="rgpd"/>
@@ -689,14 +689,14 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           <div class="result-motive">
             <div class="result-motive-label">▸ Mobile du crime</div>
             <div class="result-motive-text">
-           Sasha aimait Lucas depuis toujours, mais lui ne l’a jamais vue que comme sa meilleure amie, connaissant chaque détail des préparatifs de la Saint-Valentin, elle a réservé à Emma une surprise macabre dans la chambre 217.
+              Thomas avait bâti toute sa carrière sur des recherches en partie plagiées. Julie venait de découvrir la vérité et menaçait de tout révéler à la direction dès le lendemain. Cette nuit-là, il est retourné au bâtiment C pour la convaincre de se taire. La dispute a dégénéré, et Thomas l'a tuée pour protéger sa réputation et sauver sa carrière.
             </div>
           </div>
-        <div class="result-review-btn">
-          <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H2CVM4HN" target="_blank">
-        <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
-        </a>
-        </div>
+          <div class="result-review-btn">
+            <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H2CVM4HN" target="_blank">
+              <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
+            </a>
+          </div>
         </div>
 
         <div class="terminal" id="terminal">
@@ -717,8 +717,8 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
   </main>
 
   <div style="text-align:center; padding:48px 24px 48px; background:#1c1c1c;">
-    <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" class="amazon-btn">
-      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>      
+    <a href="https://www.amazon.fr/dp/B0H2CVM4HN" target="_blank" class="amazon-btn">
+      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>
       <span>Découvrez Détective Yvonne<br><span style="color:#F5A623;">sur Amazon</span></span>
     </a>
   </div>
@@ -740,8 +740,8 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       <br>trouvez l'ASSASSIN
     </p>
   </footer>
-  
-   <div class="amazon-popup-overlay" id="reviewPopup">
+
+  <div class="amazon-popup-overlay" id="reviewPopup">
     <div class="amazon-popup">
       <button class="amazon-popup-close" onclick="closePopup()">✕</button>
       <div class="amazon-popup-icon">⭐</div>
@@ -753,9 +753,10 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       </a>
     </div>
   </div>
-  
+
   <script>
-    const COUPABLE = "Sasha";
+    const COUPABLE = "Thomas";
+    const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec';
 
     const bootLines = [
       { el: 'tl1', text: '> Connexion au serveur sécurisé... OK', delay: 400 },
@@ -786,6 +787,15 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       return s.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
 
+    function envoyerSheet(payload) {
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+    }
+
     function verifier() {
       const val = document.getElementById('prenom').value;
       const box = document.getElementById('result');
@@ -802,9 +812,9 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         return;
       }
       if (!document.getElementById('email').value.trim()) {
-      t3.className = 'term-line err';
-      t3.textContent = '> ERREUR : adresse e-mail requise.';
-      return;
+        t3.className = 'term-line err';
+        t3.textContent = '> ERREUR : adresse e-mail requise.';
+        return;
       }
 
       t1.className = 'term-line';
@@ -819,24 +829,23 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       }, 600);
 
       setTimeout(() => {
+        const email = document.getElementById('email').value.trim();
+        const rgpd  = document.getElementById('rgpd').checked;
+
         if (normaliser(val) === normaliser(COUPABLE)) {
           t3.className = 'term-line active';
           t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
           showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
+          if (email) {
+            envoyerSheet({ email, rgpd, suspect: val, resultat: 'correct', source: 'affaire-laura' });
+          }
           setTimeout(showPopup, 23000);
         } else {
           t3.className = 'term-line err';
           t3.textContent = '> AUCUNE CORRESPONDANCE — Suspect non reconnu.';
           showResult('wrong', '[ ACCUSATION REJETÉE ]', 'Suspect Innocenté', 'Ce prénom ne correspond pas au coupable. Reprenez votre enquête.');
-          const emailWrong = document.getElementById('email').value.trim();
-          const rgpdWrong  = document.getElementById('rgpd').checked;
-          if (emailWrong) {
-            fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
-              method: 'POST',
-              mode: 'no-cors',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email: emailWrong, rgpd: rgpdWrong, suspect: val, source: 'mauvais-suspect-lucas' })
-            });
+          if (email) {
+            envoyerSheet({ email, rgpd, suspect: val, resultat: 'mauvais', source: 'affaire-laura' });
           }
         }
       }, 1600);
@@ -849,19 +858,6 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       document.getElementById('result-title').textContent = title;
       document.getElementById('result-text').textContent = text;
       requestAnimationFrame(() => box.classList.add('show'));
-
-      if (type === 'correct') {
-        const email = document.getElementById('email').value.trim();
-        const rgpd  = document.getElementById('rgpd').checked;
-        if (email) {
-  fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
-  method: 'POST',
-  mode: 'no-cors',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, rgpd: rgpd, source: 'verification-jeu' })
-  });
-        }
-      }
     }
 
     function showPopup() {
