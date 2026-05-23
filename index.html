@@ -41,14 +41,14 @@
     .folder-tab {
       position: relative; left: 16px;
       width: 130px; height: 20px;
-      background: #D8C4B1;
+      background: #8B0000;
       border-radius: 5px 5px 0 0;
       font-family: 'Share Tech Mono', monospace;
       font-size: 8px; letter-spacing: 0.2em;
-      color: #d4a870;
+      color: #ffffff;
       text-transform: uppercase;
       display: flex; align-items: center; padding: 0 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
     }
     .card {
       position: relative;
@@ -60,7 +60,7 @@
       background: #D8C4B1;
       background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E"),
-        linear-gradient(160deg, #9e6b3e 0%, #8b5a2e 45%, #7a4e24 100%);
+        linear-gradient(160deg, #D8C4B1 0%, #cbb89e 45%, #c4ae92 100%);
       box-shadow:
         0 3px 0 #4a2e10,
         0 5px 16px rgba(0,0,0,0.55),
@@ -106,24 +106,28 @@
     .card-label {
       font-family: 'Share Tech Mono', monospace;
       font-size: 8px; letter-spacing: 0.2em;
-      color: #c49060; text-transform: uppercase; margin-bottom: 4px;
+      color: #111; text-transform: uppercase; margin-bottom: 4px;
     }
     .card-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px; color: #f0dfc0;
+      font-size: 20px; color: #1a1008;
       letter-spacing: 0.05em; line-height: 1.15;
     }
-    .card-title .red { color: #cc3322; }
+    .card-title .red { color: #8B0000; }
     .card-sub {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 14px; color: #d4a870;
-      letter-spacing: 0.08em; margin-top: 4px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; color: #fff;
+      letter-spacing: 0.06em; margin-top: 8px;
+      display: inline-block;
+      background: #E47911;
+      padding: 4px 10px;
+      border-radius: 2px;
     }
     .arrow {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 24px; flex-shrink: 0;
       position: relative; z-index: 1;
-      color: #d4a870;
+      color: #8B0000;
     }
     .social { text-align: center; margin-top: 28px; }
     .mail-icon {
@@ -155,7 +159,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">L'Assassin <span class="red">N'est pas</span> Lucas</div>
-            <div class="card-sub">Acheter sur Amazon →</div>
+            <div class="card-sub">Acheter sur <img src="logoamz.png" style="width:14px;height:14px;vertical-align:middle;margin:0 3px;"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -167,8 +171,8 @@
           <img src="livre2.png" alt="L'ASSASSIN N'EST PAS LAURA" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
-            <div class="card-title">L'Assassin <span class="red">N'est pas</span> Laura</span></div>
-            <div class="card-sub">Acheter sur Amazon →</div>
+            <div class="card-title">L'Assassin <span class="red">N'est pas</span> Laura</div>
+            <div class="card-sub">Acheter sur <img src="logoamz.png" style="width:14px;height:14px;vertical-align:middle;margin:0 3px;"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -181,7 +185,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Qui a tué <span class="red">OUSMANE</span></div>
-            <div class="card-sub">Acheter sur Amazon →</div>
+            <div class="card-sub">Acheter sur <img src="logoamz.png" style="width:14px;height:14px;vertical-align:middle;margin:0 3px;"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -194,7 +198,7 @@
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Le Cadavre n'est pas <span class="red">à PARIS</span></div>
-            <div class="card-sub">Acheter sur Amazon →</div>
+            <div class="card-sub">Acheter sur <img src="logoamz.png" style="width:14px;height:14px;vertical-align:middle;margin:0 3px;"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
@@ -203,11 +207,11 @@
       <a href="#" class="folder-wrap">
         <div class="folder-tab">Affaire #5</div>
         <div class="card">
-          <img src="livre4.png" alt="Le coupable n'est pas Marie" class="card-img"/>
+          <img src="livre5.png" alt="Le coupable n'est pas Marie" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Le Coupable N'est Pas <span class="red">MARIE</span></div>
-            <div class="card-sub">Acheter sur Amazon →</div>
+            <div class="card-sub">Acheter sur <img src="logoamz.png" style="width:14px;height:14px;vertical-align:middle;margin:0 3px;"> →</div>
           </div>
           <div class="arrow">→</div>
         </div>
