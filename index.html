@@ -38,14 +38,13 @@
 
     .folder-wrap { text-decoration: none; display: block; }
 
-    /* La carte contient l'onglet en son sein */
     .card {
       position: relative;
       display: flex; align-items: center;
       border-radius: 0 6px 6px 6px;
       overflow: visible;
       padding: 18px 20px; gap: 16px;
-      margin-top: 22px; /* espace pour l'onglet */
+      margin-top: 22px;
       transition: filter 0.2s, transform 0.2s;
       background-image:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E"),
@@ -58,7 +57,6 @@
       border: 1px solid #6a4520;
     }
 
-    /* Onglet collé en haut */
     .folder-tab {
       position: absolute;
       top: -22px;
@@ -73,7 +71,6 @@
       display: flex; align-items: center; padding: 0 10px;
     }
 
-    /* Lignes papier */
     .card::after {
       content: '';
       position: absolute; inset: 0;
@@ -116,6 +113,7 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 24px; flex-shrink: 0;
       position: relative; z-index: 1; color: #8B0000;
+      cursor: pointer;
     }
 
     .social { text-align: center; margin-top: 28px; }
@@ -167,9 +165,22 @@
         </div>
       </a>
 
-      <a href="/ousmane" class="folder-wrap">
+      <a href="/marie" class="folder-wrap">
         <div class="card">
           <div class="folder-tab">Affaire #3</div>
+          <img src="livremarie.png" alt="Le coupable n'est pas Marie" class="card-img"/>
+          <div class="card-body">
+            <div class="card-label">Vérification</div>
+            <div class="card-title">Le Coupable <span class="red"> N'est Pas</span> MARIE</div>
+            <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+          </div>
+          <div class="arrow">→</div>
+        </div>
+      </a>
+
+      <a href="/ousmane" class="folder-wrap">
+        <div class="card">
+          <div class="folder-tab">Affaire #4</div>
           <img src="livreousmane.png" alt="Qui a tué Ousmane" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
@@ -182,25 +193,12 @@
 
       <a href="/paris" class="folder-wrap">
         <div class="card">
-          <div class="folder-tab">Affaire #4</div>
+          <div class="folder-tab">Affaire #5</div>
           <img src="livreparis.png" alt="Le cadavre n'est pas à Paris" class="card-img"/>
           <div class="card-body">
             <div class="card-label">Vérification</div>
             <div class="card-title">Le Cadavre n'est pas <span class="red">à PARIS</span></div>
-            <a href="https://www.amazon.fr" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
-          </div>
-          <div class="arrow">→</div>
-        </div>
-      </a>
-
-      <a href="/marie" class="folder-wrap">
-        <div class="card">
-          <div class="folder-tab">Affaire #5</div>
-          <img src="livremarie.png" alt="Le coupable n'est pas Marie" class="card-img"/>
-          <div class="card-body">
-            <div class="card-label">Vérification</div>
-            <div class="card-title">Le Coupable N'est Pas<span class="red"> N'est Pas</span> MARIE</div>
-            <a href="https://www.amazon.fr" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+            <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
           </div>
           <div class="arrow">→</div>
         </div>
