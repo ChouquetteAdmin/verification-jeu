@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>L'Assassin n'est pas Lucas par Détective Yvonne</title>
+  <title>Le Cadavre n'est pas à Paris par Détective Yvonne</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,7 +31,6 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
     header {
       background: #1c1c1c;
       background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
@@ -42,15 +41,13 @@
 
     .site-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.2rem, 12vw, 6rem);
+      font-size: clamp(2.4rem, 10vw, 5rem);
       line-height: 0.9;
       letter-spacing: 0.02em;
       color: #ffffff;
     }
-    .site-title .accent-red  { color: var(--red); }
-    .site-title .accent-name { color: #ffffff; }
+    .site-title .accent-red { color: var(--red); }
 
-    /* MAIN */
     main {
       max-width: 660px;
       margin: 0 auto;
@@ -58,34 +55,22 @@
       background: #1c1c1c;
     }
 
-    h2 {
-      font-family: 'Bebas Neue', sans-serif;
-    }
+    h2 { font-family: 'Bebas Neue', sans-serif; }
 
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      letter-spacing: 0.06em;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
-    .section-rule {
-      height: 2px;
-      background: linear-gradient(to right, var(--red), transparent);
-      margin-bottom: 24px;
-    }
     .section-body {
       font-size: 1.05rem;
       line-height: 1.75;
       color: #cccccc;
       margin-bottom: 18px;
     }
-    .section-body em     { color: #fff; font-style: italic; }
-    .section-body strong { color: var(--gold); }
+    .section-body em { color: #fff; font-style: italic; }
 
-    /* ═══════════════════════════════
-       INTERPOL PORTAL — FOND BLANC
-    ═══════════════════════════════ */
+    .section-rule {
+      height: 2px;
+      background: linear-gradient(to right, var(--red), transparent);
+      margin-bottom: 24px;
+    }
+
     .portal-wrap {
       margin: 36px 0 0;
       border: 1px solid var(--ip-border);
@@ -97,7 +82,6 @@
         0 16px 64px rgba(0,0,0,0.6);
     }
 
-    /* Window titlebar */
     .portal-titlebar {
       background: linear-gradient(180deg, #1c2e50 0%, #142240 100%);
       border-bottom: 2px solid var(--ip-blue2);
@@ -138,7 +122,6 @@
     }
     @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
 
-    /* Blue Interpol banner */
     .portal-banner {
       background: linear-gradient(135deg, #0d2d6b 0%, #163d8a 60%, #0d2d6b 100%);
       padding: 20px 24px 16px;
@@ -188,17 +171,14 @@
       letter-spacing: 0.08em;
     }
 
-    /* Portal body — FOND BLANC */
     .portal-body {
       background: #ffffff;
       padding: 28px 28px 24px;
       position: relative;
     }
 
-    /* Tabs */
     .portal-tabs {
       display: flex;
-      gap: 0;
       margin-bottom: 20px;
       border-bottom: 1px solid #ddd;
     }
@@ -218,7 +198,6 @@
       background: rgba(22,61,138,0.04);
     }
 
-    /* Classification strip */
     .classif {
       display: flex;
       align-items: center;
@@ -246,7 +225,6 @@
       letter-spacing: 0.06em;
     }
 
-    /* Form field */
     .db-field { margin-bottom: 16px; }
     .db-field label {
       display: flex;
@@ -280,7 +258,6 @@
     }
     .db-field input::placeholder { color: #bbb; }
 
-    /* Submit button */
     .submit-btn {
       width: 100%;
       padding: 13px;
@@ -304,7 +281,6 @@
     }
     .submit-btn:active { transform: translateY(0); }
 
-    /* Result */
     .result {
       margin-top: 16px;
       max-height: 0;
@@ -383,7 +359,33 @@
     .result.correct .result-text { color: #1a9e50; }
     .result.wrong   .result-text { color: #999; }
 
-    /* Terminal */
+    .result-review-btn {
+      display: none;
+      margin-top: 16px;
+      text-align: center;
+    }
+    .result.correct.show .result-review-btn { display: block; }
+    .result-review-btn a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      background: #E47911;
+      border: 1.5px solid #F5A623;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .result-review-btn a:hover {
+      background: #F5A623;
+      box-shadow: 0 0 20px rgba(228,121,17,0.4);
+    }
+
     .terminal {
       margin-top: 18px;
       padding: 12px 14px;
@@ -411,7 +413,6 @@
     }
     @keyframes cblink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    /* Status bar */
     .portal-statusbar {
       background: #f0f4fa;
       border-top: 1px solid #dde4f0;
@@ -423,17 +424,20 @@
     .status-left { font-family: var(--mono); font-size: 0.57rem; color: #aaa; letter-spacing: 0.1em; text-transform: uppercase; }
     .status-right { font-family: var(--mono); font-size: 0.57rem; color: var(--ip-blue2); opacity: 0.6; letter-spacing: 0.1em; }
 
-    /* CONTACT */
     .contact-section {
       background: #1c1c1c;
       background-image: url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0' y='0' width='1' height='1' fill='%23ffffff' fill-opacity='0.08'/%3E%3C/svg%3E");
-      padding: 40px 0 40px;
+      padding: 40px 0;
       width: 100%;
       border-top: 1px solid #8B0000;
     }
-    .contact-section .section-title { color: #fff; }
-    .contact-section .section-body  { color: rgba(255,255,255,0.85); }
-    .contact-section .section-rule  { background: linear-gradient(to right, rgba(255,255,255,0.5), transparent); }
+    .contact-section .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: 0.06em;
+      color: #fff; margin-bottom: 10px;
+    }
+    .contact-section .section-body { color: rgba(255,255,255,0.85); }
+    .contact-section .section-rule { background: linear-gradient(to right, rgba(255,255,255,0.5), transparent); }
     .contact-section a {
       color: #fff;
       text-decoration: none;
@@ -461,11 +465,10 @@
     }
     .amazon-btn:hover {
       background: #F5A623;
-      border-color: #F5A623;
       box-shadow: 0 0 28px rgba(228,121,17,0.45);
       transform: translateY(-1px);
     }
-    .amazon-btn:active { transform: translateY(0); }
+
     .amazon-popup-overlay {
       position: fixed; inset: 0;
       background: rgba(0,0,0,0.75);
@@ -522,37 +525,7 @@
       background: #F5A623;
       box-shadow: 0 0 20px rgba(228,121,17,0.4);
     }
-    .result-review-btn {
-  display: none;
-  margin-top: 16px;
-  text-align: center;
-    }
-    .result.correct.show .result-review-btn { display: block; }
-    .result-review-btn a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #E47911;
-  border: 1.5px solid #F5A623;
-  padding: 10px 20px;
-  border-radius: 3px;
-  text-decoration: none;
-  transition: background 0.2s, box-shadow 0.2s;
-}
-.result-review-btn a:hover {
-  background: #F5A623;
-  box-shadow: 0 0 20px rgba(228,121,17,0.4);
-}
-    .db-field-row {
-      display: flex;
-      gap: 12px;
-    }
-    .db-field-row .db-field { flex: 1; }
+
     .rgpd-field {
       display: flex;
       align-items: flex-start;
@@ -580,7 +553,6 @@
     }
     .rgpd-field label::before { display: none; }
 
-    /* FOOTER */
     footer {
       background: var(--red);
       padding: 22px 20px;
@@ -599,27 +571,25 @@
 <body>
   <header>
     <h1 class="site-title">
-      L'ASSASSIN<br/><span class="accent-red">N'EST PAS</span> LUCAS
+      LE CADAVRE N'EST PAS<br/><span class="accent-red">À PARIS</span>
     </h1>
   </header>
 
   <main>
-    <div><img src="livrelucas.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;"/></div>
+    <div><img src="livreparis.png" alt="livre" style="width:100%; height:auto; display:block; margin-bottom:20px;"/></div>
 
-      <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Vérification du Suspect</h2>
+    <h2 style="font-family:'Bebas Neue',sans-serif; font-size:2rem; letter-spacing:0.06em; color:#ffffff; text-align:center; margin:24px 0 16px;">Localisation du Cadavre</h2>
     <p class="section-body">
-      Utilisez le portail sécurisé ci-dessous pour transmettre votre accusation à la
-      <em>Police</em>.
+      Utilisez le portail sécurisé ci-dessous pour transmettre votre réponse à la <em>Police</em>.
     </p>
     <p class="section-body">
-      Entrez le prénom du suspect que vous pensez être l'assassin.
-Seul le véritable coupable permettra de déverrouiller le rapport final.
+      Entrez le nom de la ville où vous pensez que le corps est caché.
+      Seule la bonne ville permettra de déverrouiller le rapport final.
     </p>
     <p class="section-body" style="font-style:italic; color:#666; font-size:0.95rem;">
-      Attention: Assurez-vous d'avoir terminé votre enquête avant de soumettre votre réponse.
+      Attention : Assurez-vous d'avoir terminé votre enquête avant de soumettre votre réponse.
     </p>
 
-    <!-- PORTAL -->
     <div class="portal-wrap">
 
       <div class="portal-titlebar">
@@ -643,11 +613,11 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         </svg>
         <div class="banner-text">
           <div class="banner-title">Police</div>
-          <div class="banner-subtitle">Base de données nationale des Coupables</div>
+          <div class="banner-subtitle">Base de données nationale des Affaires Criminelles</div>
         </div>
         <div class="banner-ref">
           <span>DOSSIER</span>
-          <strong>#LUCAS</strong>
+          <strong>#PARIS</strong>
         </div>
       </div>
 
@@ -659,18 +629,18 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
 
         <div class="classif">
           <span class="classif-badge">Confidentiel</span>
-          <span class="classif-text">Vérification de suspect: Affaire Lucas</span>
+          <span class="classif-text">Localisation du cadavre : Affaire Paris</span>
         </div>
 
         <div class="db-field">
-          <label for="prenom">Identité du suspect</label>
-          <input type="text" id="prenom" placeholder="ENTRER LE PRÉNOM DU COUPABLE..." autocomplete="off" spellcheck="false"/>
+          <label for="ville">Ville où est caché le cadavre</label>
+          <input type="text" id="ville" placeholder="ENTRER LE NOM DE LA VILLE..." autocomplete="off" spellcheck="false"/>
         </div>
-        
-          <div class="db-field">
-            <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
-            <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false"required/>
-          </div>
+
+        <div class="db-field">
+          <label for="email">Adresse e-mail <span style="color:var(--red);">*</span></label>
+          <input type="email" id="email" placeholder="VOTRE@EMAIL.COM" autocomplete="off" spellcheck="false" required/>
+        </div>
 
         <div class="rgpd-field">
           <input type="checkbox" id="rgpd"/>
@@ -684,19 +654,19 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           <div class="result-title" id="result-title"></div>
           <div class="result-text" id="result-text"></div>
           <div class="result-photo-wrap">
-            <img src="coupable-lucas.png" alt="Le coupable"/>
+            <img src="solution-paris.png" alt="Fumay"/>
           </div>
           <div class="result-motive">
-            <div class="result-motive-label">▸ Mobile du crime</div>
+            <div class="result-motive-label">▸ Localisation confirmée</div>
             <div class="result-motive-text">
-           Sasha aimait Lucas depuis toujours, mais lui ne l’a jamais vue que comme sa meilleure amie, connaissant chaque détail des préparatifs de la Saint-Valentin, elle a réservé à Emma une surprise macabre dans la chambre 217.
+              Le corps a bien été retrouvé à Fumay, une ville des Ardennes au bord de la Meuse. Les enquêteurs ont pu localiser la scène de crime grâce aux indices dissimulés tout au long de l'enquête.
             </div>
           </div>
-        <div class="result-review-btn">
-          <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H1QZQS4C" target="_blank">
-        <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
-        </a>
-        </div>
+          <div class="result-review-btn">
+            <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H2PWG5J6" target="_blank">
+              <img src="amazon.png" style="width:18px;height:18px;" alt="Amazon"/> Laisser un avis sur Amazon
+            </a>
+          </div>
         </div>
 
         <div class="terminal" id="terminal">
@@ -717,8 +687,8 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
   </main>
 
   <div style="text-align:center; padding:48px 24px 48px; background:#1c1c1c;">
-    <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" class="amazon-btn">
-      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>      
+    <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" class="amazon-btn">
+      <img src="amazon.png" style="width:24px;height:24px;" alt="Amazon"/>
       <span>Découvrez Détective Yvonne<br><span style="color:#F5A623;">sur Amazon</span></span>
     </a>
   </div>
@@ -736,26 +706,26 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
 
   <footer>
     <p class="footer-text">
-      <span class="footer-dot">•</span>Parmi 20.000 prénoms<span class="footer-dot">•</span>
-      <br>trouvez l'ASSASSIN
+      <span class="footer-dot">•</span>Parmi 20.000 villes<span class="footer-dot">•</span>
+      <br>trouvez où est caché LE CADAVRE
     </p>
   </footer>
-  
-   <div class="amazon-popup-overlay" id="reviewPopup">
+
+  <div class="amazon-popup-overlay" id="reviewPopup">
     <div class="amazon-popup">
       <button class="amazon-popup-close" onclick="closePopup()">✕</button>
       <div class="amazon-popup-icon">⭐</div>
       <div class="amazon-popup-title">Vous avez aimé le livre ?</div>
       <p class="amazon-popup-text">Votre avis compte énormément.<br>Laissez un commentaire sur Amazon et aidez d'autres lecteurs à découvrir l'enquête.</p>
-      <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H1QZQS4C" target="_blank" class="amazon-popup-link">
+      <a href="https://www.amazon.fr/review/create-review/?ie=UTF8&channel=glance-detail&asin=B0H2PWG5J6" target="_blank" class="amazon-popup-link">
         <img src="amazon.png" style="width:20px;height:20px;" alt="Amazon"/>
         Laisser un avis<br>sur Amazon
       </a>
     </div>
   </div>
-  
+
   <script>
-    const COUPABLE = "Sasha";
+    const SOLUTION = "Fumay";
 
     const bootLines = [
       { el: 'tl1', text: '> Connexion au serveur sécurisé... OK', delay: 400 },
@@ -767,7 +737,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
     setTimeout(() => {
       const t3 = document.getElementById('tl3');
       t3.innerHTML = '';
-      typeInto(t3, "> En attente d'une accusation_", 32, true);
+      typeInto(t3, "> En attente d'une localisation_", 32, true);
     }, 2400);
 
     function typeInto(el, text, speed, cursor = false) {
@@ -787,7 +757,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
     }
 
     function verifier() {
-      const val = document.getElementById('prenom').value;
+      const val = document.getElementById('ville').value;
       const box = document.getElementById('result');
       box.className = 'result';
       box.classList.remove('show');
@@ -798,13 +768,13 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
 
       if (!val.trim()) {
         t3.className = 'term-line err';
-        t3.textContent = '> ERREUR : aucun identifiant saisi.';
+        t3.textContent = '> ERREUR : aucune ville saisie.';
         return;
       }
       if (!document.getElementById('email').value.trim()) {
-      t3.className = 'term-line err';
-      t3.textContent = '> ERREUR : adresse e-mail requise.';
-      return;
+        t3.className = 'term-line err';
+        t3.textContent = '> ERREUR : adresse e-mail requise.';
+        return;
       }
 
       t1.className = 'term-line';
@@ -815,19 +785,19 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       t3.innerHTML = '<span class="cursor-block"></span>';
 
       setTimeout(() => {
-        t2.textContent = `> Suspect : "${val.toUpperCase()}" — Analyse en cours...`;
+        t2.textContent = `> Ville : "${val.toUpperCase()}" — Analyse en cours...`;
       }, 600);
 
       setTimeout(() => {
-        if (normaliser(val) === normaliser(COUPABLE)) {
+        if (normaliser(val) === normaliser(SOLUTION)) {
           t3.className = 'term-line active';
-          t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
-          showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
-          setTimeout(showPopup, 23000);
+          t3.textContent = '> CORRESPONDANCE TROUVÉE — Localisation confirmée.';
+          showResult('correct', '[ LOCALISATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez trouvé où est caché le cadavre. L'enquête est résolue.");
+          setTimeout(showPopup, 15000);
         } else {
           t3.className = 'term-line err';
-          t3.textContent = '> AUCUNE CORRESPONDANCE — Suspect non reconnu.';
-          showResult('wrong', '[ ACCUSATION REJETÉE ]', 'Suspect Innocenté', 'Ce prénom ne correspond pas au coupable. Reprenez votre enquête.');
+          t3.textContent = '> AUCUNE CORRESPONDANCE — Ville non reconnue.';
+          showResult('wrong', '[ LOCALISATION REJETÉE ]', 'Mauvaise Piste', 'Cette ville ne correspond pas. Reprenez votre enquête.');
           const emailWrong = document.getElementById('email').value.trim();
           const rgpdWrong  = document.getElementById('rgpd').checked;
           if (emailWrong) {
@@ -835,7 +805,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
               method: 'POST',
               mode: 'no-cors',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ email: emailWrong, rgpd: rgpdWrong, suspect: val, source: 'mauvais-suspect-lucas' })
+              body: JSON.stringify({ email: emailWrong, rgpd: rgpdWrong, suspect: val, source: 'mauvaise-ville-paris' })
             });
           }
         }
@@ -854,12 +824,12 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
         const email = document.getElementById('email').value.trim();
         const rgpd  = document.getElementById('rgpd').checked;
         if (email) {
-  fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
-  method: 'POST',
-  mode: 'no-cors',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ email, rgpd: rgpd, source: 'verification-jeu' })
-  });
+          fetch('https://script.google.com/macros/s/AKfycbzLPho4U-hn1lEkrm6BfSnLcMMLGobUL0csHjUBwTFLNPgyMOPPjrPhcIcifouVqHz2/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, rgpd: rgpd, source: 'solution-paris' })
+          });
         }
       }
     }
@@ -874,7 +844,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
       if (e.target === this) closePopup();
     });
 
-    document.getElementById('prenom').addEventListener('keydown', e => {
+    document.getElementById('ville').addEventListener('keydown', e => {
       if (e.key === 'Enter') verifier();
     });
   </script>
