@@ -486,7 +486,7 @@
       padding: 36px 32px 28px;
       text-align: center;
       transform: translateY(16px);
-      transition: transform 7.0s;
+      transition: transform 0.4s;
       position: relative;
     }
     .amazon-popup-overlay.show .amazon-popup { transform: translateY(0); }
@@ -823,7 +823,7 @@ Seul le véritable coupable permettra de déverrouiller le rapport final.
           t3.className = 'term-line active';
           t3.textContent = '> CORRESPONDANCE TROUVÉE — Identité confirmée.';
           showResult('correct', '[ ACCUSATION CONFIRMÉE ]', 'Félicitations, Détective', "Vous avez démasqué le véritable assassin. L'enquête est résolue.");
-          setTimeout(showPopup, 10000);
+          setTimeout(showPopup, 15000);
         } else {
           t3.className = 'term-line err';
           t3.textContent = '> AUCUNE CORRESPONDANCE — Suspect non reconnu.';
