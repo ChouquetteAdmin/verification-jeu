@@ -33,74 +33,9 @@
       font-size: 15px; font-weight: 500;
       letter-spacing: 0.1em; color: #888; text-transform: uppercase;
     }
-    .links { display: flex; flex-direction: column; gap: 14px; }
-    .folder-wrap { text-decoration: none; display: block; }
-    .folder-tab {
-      position: relative; left: 16px;
-      width: 130px; height: 20px;
-      background: #8B0000;
-      border-radius: 5px 5px 0 0;
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px; letter-spacing: 0.2em;
-      color: #ffffff;
-      text-transform: uppercase;
-      display: flex; align-items: center; padding: 0 10px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .card {
-      display: flex;
-      align-items: center;
-      border-radius: 0 6px 6px 6px;
-      text-decoration: none;
-      overflow: hidden;
-      padding: 14px 18px;
-      gap: 16px;
-      transition: background 0.2s, border-color 0.2s;
-      background: #D8C4B1;
-      background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E"),
-        linear-gradient(160deg, #D8C4B1 0%, #cbb89e 45%, #c4ae92 100%);
-      box-shadow:
-        0 3px 0 #4a2e10,
-        0 5px 16px rgba(0,0,0,0.55),
-        inset 0 1px 0 rgba(255,255,255,0.08),
-        inset 0 0 40px rgba(0,0,0,0.12);
-      border: 1px solid #6a4520;
-      border-top: none;
-    }
+    .links { display: flex; flex-direction: column; gap: 0; }
     .folder-wrap:hover .card { filter: brightness(1.08); transform: translateY(-2px); }
-    .folder-wrap:hover .folder-tab { filter: brightness(1.08); }
-    .card-img {
-      width: 42px; height: 60px; object-fit: cover;
-      display: block; border-radius: 2px; flex-shrink: 0;
-    }
-    .card-body { flex: 1; }
-    .card-label {
-      font-family: 'Share Tech Mono', monospace;
-      font-size: 8px; letter-spacing: 0.2em;
-      color: #111; text-transform: uppercase; margin-bottom: 4px;
-    }
-    .card-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 20px; color: #1a1008;
-      letter-spacing: 0.05em; line-height: 1.15;
-    }
-    .card-title .red { color: #8B0000; }
-    .card-sub {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 14px; color: #fff;
-      letter-spacing: 0.1em; margin-top: 8px;
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #E47911;
-      padding: 7px 16px; border-radius: 2px;
-      text-transform: uppercase; text-decoration: none;
-    }
-    .card-sub img { height: 0.75em; width: auto; }
-    .arrow {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 24px; flex-shrink: 0;
-      color: #8B0000; cursor: pointer;
-    }
+    .folder-wrap:hover .folder-tab { filter: brightness(1.08); transform: translateY(-2px); }
     .social { text-align: center; margin-top: 28px; }
     .mail-icon {
       display: inline-flex; align-items: center; justify-content: center;
@@ -124,70 +59,70 @@
     </div>
     <div class="links">
 
-      <a href="/lucas" class="folder-wrap">
-        <div class="folder-tab">Affaire #1</div>
-        <div class="card">
-          <img src="livrelucas.png" alt="L'Assassin n'est pas Lucas" class="card-img"/>
-          <div class="card-body">
-            <div class="card-label">Vérification</div>
-            <div class="card-title">L'Assassin <span class="red">N'est pas</span> Lucas</div>
-            <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+      <div class="folder-wrap" onclick="window.location='/lucas'" style="text-decoration:none; display:flex; flex-direction:column; margin-top:14px; cursor:pointer;">
+        <div class="folder-tab" style="align-self:flex-start; margin-left:16px; width:120px; height:22px; line-height:1; background:#8B0000; border-radius:5px 5px 0 0; font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#fff; text-transform:uppercase; display:flex; align-items:center; padding:0 10px; margin-bottom:-4px;">Affaire #1</div>
+        <div class="card" style="display:flex; align-items:center; border-radius:0 6px 6px 6px; overflow:hidden; padding:16px 18px; gap:14px; background-image:linear-gradient(160deg,#D8C4B1 0%,#cbb89e 45%,#c4ae92 100%); box-shadow:0 3px 0 #4a2e10,0 5px 16px rgba(0,0,0,0.55); border:1px solid #6a4520; transition:filter 0.2s,transform 0.2s;">
+          <img src="livrelucas.png" alt="Lucas" style="width:42px; height:60px; object-fit:cover; border-radius:2px; flex-shrink:0;"/>
+          <div style="flex:1;">
+            <div style="font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#555; text-transform:uppercase; margin-bottom:4px;">Vérification</div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:#1a1008; letter-spacing:0.05em; line-height:1.15;">L'Assassin <span style="color:#8B0000;">N'est pas</span> Lucas</div>
+            <a href="https://www.amazon.fr/dp/B0H1QZQS4C" target="_blank" onclick="event.stopPropagation()" style="font-family:'Bebas Neue',sans-serif; font-size:14px; color:#fff; letter-spacing:0.1em; margin-top:8px; display:inline-flex; align-items:center; gap:6px; background:#E47911; padding:7px 16px; border-radius:2px; text-transform:uppercase; text-decoration:none;">Acheter sur <img src="amzblack.png" style="height:0.75em; width:auto;"> →</a>
           </div>
-          <div class="arrow">→</div>
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:#8B0000; flex-shrink:0;">→</div>
         </div>
-      </a>
+      </div>
 
-      <a href="/laura" class="folder-wrap">
-        <div class="folder-tab">Affaire #2</div>
-        <div class="card">
-          <img src="livrelaura.png" alt="L'Assassin n'est pas Laura" class="card-img"/>
-          <div class="card-body">
-            <div class="card-label">Vérification</div>
-            <div class="card-title">L'Assassin <span class="red">N'est pas</span> Laura</div>
-            <a href="https://www.amazon.fr/dp/B0H2CVM4HN" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+      <div class="folder-wrap" onclick="window.location='/laura'" style="text-decoration:none; display:flex; flex-direction:column; margin-top:14px; cursor:pointer;">
+        <div class="folder-tab" style="align-self:flex-start; margin-left:16px; width:120px; height:22px; line-height:1; background:#8B0000; border-radius:5px 5px 0 0; font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#fff; text-transform:uppercase; display:flex; align-items:center; padding:0 10px; margin-bottom:-4px;">Affaire #2</div>
+        <div class="card" style="display:flex; align-items:center; border-radius:0 6px 6px 6px; overflow:hidden; padding:16px 18px; gap:14px; background-image:linear-gradient(160deg,#D8C4B1 0%,#cbb89e 45%,#c4ae92 100%); box-shadow:0 3px 0 #4a2e10,0 5px 16px rgba(0,0,0,0.55); border:1px solid #6a4520; transition:filter 0.2s,transform 0.2s;">
+          <img src="livrelaura.png" alt="Laura" style="width:42px; height:60px; object-fit:cover; border-radius:2px; flex-shrink:0;"/>
+          <div style="flex:1;">
+            <div style="font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#555; text-transform:uppercase; margin-bottom:4px;">Vérification</div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:#1a1008; letter-spacing:0.05em; line-height:1.15;">L'Assassin <span style="color:#8B0000;">N'est pas</span> Laura</div>
+            <a href="https://www.amazon.fr/dp/B0H2CVM4HN" target="_blank" onclick="event.stopPropagation()" style="font-family:'Bebas Neue',sans-serif; font-size:14px; color:#fff; letter-spacing:0.1em; margin-top:8px; display:inline-flex; align-items:center; gap:6px; background:#E47911; padding:7px 16px; border-radius:2px; text-transform:uppercase; text-decoration:none;">Acheter sur <img src="amzblack.png" style="height:0.75em; width:auto;"> →</a>
           </div>
-          <div class="arrow">→</div>
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:#8B0000; flex-shrink:0;">→</div>
         </div>
-      </a>
+      </div>
 
-      <a href="/marie" class="folder-wrap">
-        <div class="folder-tab">Affaire #3</div>
-        <div class="card">
-          <img src="livremarie.png" alt="Le coupable n'est pas Marie" class="card-img"/>
-          <div class="card-body">
-            <div class="card-label">Vérification</div>
-            <div class="card-title">Le Coupable <span class="red">N'est Pas</span> MARIE</div>
-            <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+      <div class="folder-wrap" onclick="window.location='/marie'" style="text-decoration:none; display:flex; flex-direction:column; margin-top:14px; cursor:pointer;">
+        <div class="folder-tab" style="align-self:flex-start; margin-left:16px; width:120px; height:22px; line-height:1; background:#8B0000; border-radius:5px 5px 0 0; font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#fff; text-transform:uppercase; display:flex; align-items:center; padding:0 10px; margin-bottom:-4px;">Affaire #3</div>
+        <div class="card" style="display:flex; align-items:center; border-radius:0 6px 6px 6px; overflow:hidden; padding:16px 18px; gap:14px; background-image:linear-gradient(160deg,#D8C4B1 0%,#cbb89e 45%,#c4ae92 100%); box-shadow:0 3px 0 #4a2e10,0 5px 16px rgba(0,0,0,0.55); border:1px solid #6a4520; transition:filter 0.2s,transform 0.2s;">
+          <img src="livremarie.png" alt="Marie" style="width:42px; height:60px; object-fit:cover; border-radius:2px; flex-shrink:0;"/>
+          <div style="flex:1;">
+            <div style="font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#555; text-transform:uppercase; margin-bottom:4px;">Vérification</div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:#1a1008; letter-spacing:0.05em; line-height:1.15;">Le Coupable <span style="color:#8B0000;">N'est Pas</span> MARIE</div>
+            <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" onclick="event.stopPropagation()" style="font-family:'Bebas Neue',sans-serif; font-size:14px; color:#fff; letter-spacing:0.1em; margin-top:8px; display:inline-flex; align-items:center; gap:6px; background:#E47911; padding:7px 16px; border-radius:2px; text-transform:uppercase; text-decoration:none;">Acheter sur <img src="amzblack.png" style="height:0.75em; width:auto;"> →</a>
           </div>
-          <div class="arrow">→</div>
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:#8B0000; flex-shrink:0;">→</div>
         </div>
-      </a>
+      </div>
 
-      <a href="/ousmane" class="folder-wrap">
-        <div class="folder-tab">Affaire #4</div>
-        <div class="card">
-          <img src="livreousmane.png" alt="Qui a tué Ousmane" class="card-img"/>
-          <div class="card-body">
-            <div class="card-label">Vérification</div>
-            <div class="card-title">Qui a tué <span class="red">OUSMANE ?</span></div>
-            <a href="https://www.amazon.fr/dp/B0H2J4GY3R" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+      <div class="folder-wrap" onclick="window.location='/ousmane'" style="text-decoration:none; display:flex; flex-direction:column; margin-top:14px; cursor:pointer;">
+        <div class="folder-tab" style="align-self:flex-start; margin-left:16px; width:120px; height:22px; line-height:1; background:#8B0000; border-radius:5px 5px 0 0; font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#fff; text-transform:uppercase; display:flex; align-items:center; padding:0 10px; margin-bottom:-4px;">Affaire #4</div>
+        <div class="card" style="display:flex; align-items:center; border-radius:0 6px 6px 6px; overflow:hidden; padding:16px 18px; gap:14px; background-image:linear-gradient(160deg,#D8C4B1 0%,#cbb89e 45%,#c4ae92 100%); box-shadow:0 3px 0 #4a2e10,0 5px 16px rgba(0,0,0,0.55); border:1px solid #6a4520; transition:filter 0.2s,transform 0.2s;">
+          <img src="livreousmane.png" alt="Ousmane" style="width:42px; height:60px; object-fit:cover; border-radius:2px; flex-shrink:0;"/>
+          <div style="flex:1;">
+            <div style="font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#555; text-transform:uppercase; margin-bottom:4px;">Vérification</div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:#1a1008; letter-spacing:0.05em; line-height:1.15;">Qui a tué <span style="color:#8B0000;">OUSMANE ?</span></div>
+            <a href="https://www.amazon.fr/dp/B0H2J4GY3R" target="_blank" onclick="event.stopPropagation()" style="font-family:'Bebas Neue',sans-serif; font-size:14px; color:#fff; letter-spacing:0.1em; margin-top:8px; display:inline-flex; align-items:center; gap:6px; background:#E47911; padding:7px 16px; border-radius:2px; text-transform:uppercase; text-decoration:none;">Acheter sur <img src="amzblack.png" style="height:0.75em; width:auto;"> →</a>
           </div>
-          <div class="arrow">→</div>
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:#8B0000; flex-shrink:0;">→</div>
         </div>
-      </a>
+      </div>
 
-      <a href="/paris" class="folder-wrap">
-        <div class="folder-tab">Affaire #5</div>
-        <div class="card">
-          <img src="livreparis.png" alt="Le cadavre n'est pas à Paris" class="card-img"/>
-          <div class="card-body">
-            <div class="card-label">Vérification</div>
-            <div class="card-title">Le Cadavre n'est pas <span class="red">à PARIS</span></div>
-            <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" onclick="event.stopPropagation()" class="card-sub">Acheter sur <img src="amzblack.png" alt="Amazon"> →</a>
+      <div class="folder-wrap" onclick="window.location='/paris'" style="text-decoration:none; display:flex; flex-direction:column; margin-top:14px; cursor:pointer;">
+        <div class="folder-tab" style="align-self:flex-start; margin-left:16px; width:120px; height:22px; line-height:1; background:#8B0000; border-radius:5px 5px 0 0; font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#fff; text-transform:uppercase; display:flex; align-items:center; padding:0 10px; margin-bottom:-4px;">Affaire #5</div>
+        <div class="card" style="display:flex; align-items:center; border-radius:0 6px 6px 6px; overflow:hidden; padding:16px 18px; gap:14px; background-image:linear-gradient(160deg,#D8C4B1 0%,#cbb89e 45%,#c4ae92 100%); box-shadow:0 3px 0 #4a2e10,0 5px 16px rgba(0,0,0,0.55); border:1px solid #6a4520; transition:filter 0.2s,transform 0.2s;">
+          <img src="livreparis.png" alt="Paris" style="width:42px; height:60px; object-fit:cover; border-radius:2px; flex-shrink:0;"/>
+          <div style="flex:1;">
+            <div style="font-family:'Share Tech Mono',monospace; font-size:8px; letter-spacing:0.2em; color:#555; text-transform:uppercase; margin-bottom:4px;">Vérification</div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:20px; color:#1a1008; letter-spacing:0.05em; line-height:1.15;">Le Cadavre n'est pas <span style="color:#8B0000;">à PARIS</span></div>
+            <a href="https://www.amazon.fr/dp/B0H2PWG5J6" target="_blank" onclick="event.stopPropagation()" style="font-family:'Bebas Neue',sans-serif; font-size:14px; color:#fff; letter-spacing:0.1em; margin-top:8px; display:inline-flex; align-items:center; gap:6px; background:#E47911; padding:7px 16px; border-radius:2px; text-transform:uppercase; text-decoration:none;">Acheter sur <img src="amzblack.png" style="height:0.75em; width:auto;"> →</a>
           </div>
-          <div class="arrow">→</div>
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:24px; color:#8B0000; flex-shrink:0;">→</div>
         </div>
-      </a>
+      </div>
 
     </div>
     <div class="social">
